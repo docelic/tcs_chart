@@ -67,7 +67,7 @@ Export Format
 ## Mobile Clients
 
 TCS Item | Antidote (iOS) | Antox (Android) | Cyanide (SailfishOS) | Harbour---tox (Sailfish on Jolla) | ToxDroid (Android) | TRIfA (Android)
----
+--- | --- | --- | --- | --- | ---
 General
 1.0.1 | ? | ? | ? | ? | ? | ?
 1.0.2 | ? | ? | ? | ? | ? | ?
