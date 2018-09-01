@@ -9,13 +9,13 @@ https://tox.gitbooks.io/tox-client-standard/content/index.html
 ## Desktop clients
 
 TCS Item | CLItox | Detox | Fltox | fToxTun | Isotoxin | Konv | minitox | MirandaNG | Osmosis.jl | Pastox | qTox | Ricin | Toxer | Toxic | Toxy | Toxygen | Toxzilla | uTox | Venom
-- | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | -
-General | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | -
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+General | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
 1.0.1 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 1.0.2 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 1.0.3 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 1.0.4 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
-User Tox ID | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | -
+User Tox ID | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
 2.1.1 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 2.1.2 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 User Avatar
@@ -63,11 +63,11 @@ Export Format
 5.1.3 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 
 
-----------
+------------------------------
 ## Mobile Clients
 
-TCS Item | Antidote (iOS) | Antox (Android) | Cyanide (SailfishOS) | Harbour-tox (Sailfish on Jolla) | ToxDroid (Android) | TRIfA (Android)
--
+TCS Item | Antidote (iOS) | Antox (Android) | Cyanide (SailfishOS) | Harbour---tox (Sailfish on Jolla) | ToxDroid (Android) | TRIfA (Android)
+---
 General
 1.0.1 | ? | ? | ? | ? | ? | ?
 1.0.2 | ? | ? | ? | ? | ? | ?
