@@ -1,19 +1,19 @@
 {
-  "name": "Detox",
+  "name": "Detox Long Running Name",
   "shortname": "Detox",
   "type": "client",
   "url": "",
   "platforms": ["Linux"],
   "items": {
     "1.0.2": 1,
-		"1.0.3": 0,
-		"1.0.4": [1, "This feature is experimental"],
-		"2.1.1": [0, "Very soon to be done!"],
-		"2.2.2": 1,
-		"2.2.3": 0,
-		"2.2.4": [1, "Note goes here"],
-		"2.2.5": [0, "Note goes here"],
-		"2.1.2": 0,
-		"2.1.1": 1
+    "1.0.3": 0,
+    "1.0.4": [1, "This feature is experimental"],
+    "2.1.1": [0, "Very soon to be done!"],
+    "2.2.2": 1,
+    "2.2.3": 0,
+    "2.2.4": [1, "Note goes here"],
+    "2.2.5": [0, "Note goes here"],
+    "2.1.2": 0,
+    "2.1.1": 1
   }
 }
