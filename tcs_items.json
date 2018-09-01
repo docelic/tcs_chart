@@ -1,0 +1,205 @@
+{
+	"name": "Introduction",
+	"description": "",
+
+	"items": {
+		"1": {
+			"name": "General requirements",
+			"description": "",
+			"items": {
+				"0": {
+					"items": {
+						"1": {
+							"required": true
+						},
+						"2": {
+							"required": true
+						},
+						"3": {
+							"required": true
+						},
+						"4": {
+							"required": true
+						}
+					}
+				}
+			}
+		},
+		"2": {
+			"name": "User Identification",
+			"items": {
+				"1": {
+					"name": "Tox ID",
+					"items": {
+						"1": {
+							"required": true
+						},
+						"2": {
+							"required": true
+						}
+					}
+				},
+				"2": {
+					"name": "Avatar",
+					"items": {
+						"1": {
+							"required": false
+						},
+						"2": {
+							"required": "2.2.1"
+						},
+						"3": {
+							"required": "2.2.1"
+						},
+						"4": {
+							"required": "2.2.1"
+						},
+						"5": {
+							"required": "2.2.1"
+						},
+						"6": {
+							"required": "2.2.1"
+						},
+						"7": {
+							"required": "2.2.1"
+						},
+						"8": {
+							"required": "2.2.1"
+						},
+						"9": {
+							"required": "2.2.1"
+						},
+						"10": {
+							"required": "2.2.1"
+						},
+						"11": {
+							"required": "2.2.1"
+						}
+					}
+				}
+			}
+		},
+		"3": {
+			"name": "Communication",
+			"items": {
+				"1": {
+					"name": "Friend Requests",
+					"items": {
+						"1": {
+							"required": true
+						},
+						"2": {
+							"required": true
+						}
+					}
+				},
+				"2": {
+					"name": "Group Chats",
+					"items": {
+						"1": {
+							"required": false
+						},
+						"2": {
+							"required": "3.2.1"
+						},
+						"3": {
+							"required": false
+						}
+					}
+				},
+				"3": {
+					"name": "Calls",
+					"items": {
+						"1": {
+							"required": true
+						},
+						"2": {
+							"required": false
+						},
+						"3": {
+							"required": "3.3.2"
+						}
+					}
+				},
+				"4": {
+					"name": "File Transfers",
+					"items": {
+						"1": {
+							"required": false
+						},
+						"2": {
+							"required": "3.4.1"
+						}
+					}
+				},
+				"5": {
+					"name": "Message Formatting",
+					"items": {
+						"1": {
+							"required": true
+						},
+						"2": {
+							"required": true
+						},
+						"3": {
+							"required": true
+						},
+						"4": {
+							"required": true
+						}
+					}
+				}
+			}
+		},
+		"4": {
+			"name": "Message Persistence",
+			"items": {
+				"0": {
+					"items": {
+						"1": {
+							"required": false
+						},
+						"2": {
+							"required": false
+						}
+					}
+				}
+			}
+		},
+		"5": {
+			"name": "Data Storage",
+			"items": {
+				"0": {
+					"items": {
+						"1": {
+							"required": true
+						},
+						"2": {
+							"required": false
+						},
+						"3": {
+							"required": true
+						},
+						"4": {
+							"required": false
+						}
+					}
+				},
+				"1": {
+					"name": "Export Format",
+					"items": {
+						"1": {
+							"required": true
+						},
+						"2": {
+							"required": true
+						},
+						"3": {
+							"required": true
+						}
+					}
+				}
+			}
+		}
+	}
+}
