@@ -1,9 +1,5 @@
 # Tox Client Standard - Compliance Chart
 
-TCS Item | CLItox | Detox
---- | --- | ---
-1 | 2 | 3
-
 https://tox.gitbooks.io/tox-client-standard/content/index.html
 
 ## Desktop clients
@@ -67,7 +63,7 @@ Export Format
 ## Mobile Clients
 
 TCS Item | Antidote (iOS) | Antox (Android) | Cyanide (SailfishOS) | Harbour-tox (Sailfish on Jolla) | ToxDroid (Android) | TRIfA (Android)
---- | --- | --- | --- | --- | ---
+--- | --- | --- | --- | --- | --- | ---
 General
 1.0.1 | ? | ? | ? | ? | ? | ?
 1.0.2 | ? | ? | ? | ? | ? | ?
