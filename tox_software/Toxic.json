@@ -1,0 +1,10 @@
+{
+  "name": "Toxic",
+  "shortname": "Toxic",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

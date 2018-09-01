@@ -1,0 +1,10 @@
+{
+  "name": "Harbour-tox",
+  "shortname": "Harbour-tox",
+  "type": "client",
+  "url": "",
+  "platforms": ["SailfishOS (Jolla)"],
+  "items": {
+    
+  }
+}

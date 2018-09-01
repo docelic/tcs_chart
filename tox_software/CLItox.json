@@ -1,0 +1,10 @@
+{
+  "name": "CLItox",
+  "shortname": "CLItox",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

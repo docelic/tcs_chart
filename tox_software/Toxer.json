@@ -1,0 +1,10 @@
+{
+  "name": "Toxer",
+  "shortname": "Toxer",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

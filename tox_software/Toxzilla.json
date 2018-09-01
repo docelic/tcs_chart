@@ -1,0 +1,10 @@
+{
+  "name": "Toxzilla",
+  "shortname": "Toxzilla",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

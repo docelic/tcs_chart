@@ -1,0 +1,10 @@
+{
+  "name": "qTox",
+  "shortname": "qTox",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Antidote",
+  "shortname": "Antidote",
+  "type": "client",
+  "url": "",
+  "platforms": ["iOS"],
+  "items": {
+    
+  }
+}

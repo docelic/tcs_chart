@@ -1,0 +1,10 @@
+{
+  "name": "Ricin",
+  "shortname": "Ricin",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

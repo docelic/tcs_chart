@@ -1,0 +1,10 @@
+{
+  "name": "TRIfA",
+  "shortname": "TRIfA",
+  "type": "client",
+  "url": "",
+  "platforms": ["Android"],
+  "items": {
+    
+  }
+}

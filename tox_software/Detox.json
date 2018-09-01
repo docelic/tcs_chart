@@ -1,0 +1,10 @@
+{
+  "name": "Detox",
+  "shortname": "Detox",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

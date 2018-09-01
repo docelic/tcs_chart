@@ -1,0 +1,10 @@
+{
+  "name": "Pastox",
+  "shortname": "Pastox",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

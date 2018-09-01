@@ -1,0 +1,10 @@
+{
+  "name": "Konv",
+  "shortname": "Konv",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

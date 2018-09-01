@@ -1,0 +1,10 @@
+{
+  "name": "Toxygen",
+  "shortname": "Toxygen",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "uTox",
+  "shortname": "uTox",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "fToxTun",
+  "shortname": "fToxTun",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}

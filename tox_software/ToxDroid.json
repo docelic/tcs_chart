@@ -1,0 +1,10 @@
+{
+  "name": "ToxDroid",
+  "shortname": "ToxDroid",
+  "type": "client",
+  "url": "",
+  "platforms": ["Android"],
+  "items": {
+    
+  }
+}

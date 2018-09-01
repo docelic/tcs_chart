@@ -1,0 +1,10 @@
+{
+  "name": "minitox",
+  "shortname": "minitox",
+  "type": "client",
+  "url": "",
+  "platforms": ["Linux"],
+  "items": {
+    
+  }
+}
