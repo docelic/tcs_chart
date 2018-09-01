@@ -4,7 +4,7 @@ https://tox.gitbooks.io/tox-client-standard/content/index.html
 ## Desktop clients
 
 TCS Item | CLItox | Detox | Fltox | fToxTun | Isotoxin | Konv | minitox | MirandaNG | Osmosis.jl | Pastox | qTox | Ricin | Toxer | Toxic | Toxy | Toxygen | Toxzilla | uTox | Venom
--
+- | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | -
 General
 1.0.1 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 1.0.2 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
