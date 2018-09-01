@@ -10,7 +10,7 @@ https://tox.gitbooks.io/tox-client-standard/content/index.html
 
 TCS Item | CLItox | Detox | Fltox | fToxTun | Isotoxin | Konv | minitox | MirandaNG | Osmosis.jl | Pastox | qTox | Ricin | Toxer | Toxic | Toxy | Toxygen | Toxzilla | uTox | Venom
 --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-General | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+General |
 1.0.1 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 1.0.2 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
 1.0.3 | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ?
