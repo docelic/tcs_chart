@@ -14,7 +14,6 @@
 # Sat Sep  1 17:53:23 CEST 2018
 
 # TODO:
-# - Use uTox PR to resolve last remaining edge cases in HTML output (e.g. 2.2.2 should be green, right now isn't)
 # - Add total compliance scores/percentages
 # - Implement TODOs from file below
 # - Add more filtering options (e.g. only desktop clients, only mobile clients, etc.)
@@ -23,7 +22,6 @@
 # - Make TCS item links work
 # - Fill in basic data for software (name, URL, license, description, language)
 # - Fill in comparison tables
-# - Remove IxHash ties from a couple places where not necessary
 # - Find a way to display software license/platform/language etc. (Use title="" on software name to embed this info?)
 # - Add "X" button to every column and row, and minimal JavaScript to remove the respective column or row
 
@@ -157,7 +155,6 @@ sub load_tcs_items {
 sub load_tox_software {
   my @software = <$C{tox_software_glob}>;
   my %data;
-  tie %data, 'Tie::IxHash';
 
   for(@software) {
     my $struct = $json->decode(read_file $_);
@@ -221,7 +218,6 @@ sub dump_tox_software {
 #
 sub flatten_tcs_items {
   my %data;
-  tie %data, 'Tie::IxHash';
 
   my $section = $C{tcs_items};
   while(my($sk,$item) = each %{$$section{items}}) {
@@ -292,7 +288,6 @@ sub produce_tcs_matrix {
 
       unless( $data{$i}) {
         $data{$i}= {};
-        tie %{$data{$i}}, 'Tie::IxHash'
       }
       $data{$i}{$s} = $computed
     }
@@ -318,9 +313,13 @@ sub compute_compliance {
   # Figure out if this item must be complied to.
   my $must = $$ti{required};
   if( $$ti{depends_on}) {
-    $must = $$s{items}{ $$ti{depends_on} }{compliant} ? $must : undef;
-    # TODO: provide informative comment related to depends_on
-    #$data{comment} .= "(Depends on $$ti{depends_on})\n" if defined $data{compliant};
+		# TODO this code does not support looking up through a dependency chain, but one level only.
+		my $dep_item = $$ti{depends_on};
+		my $negated = ( $dep_item =~ s/!//g);
+    $must = $$s{items}{ $dep_item }{compliant} ? $must : undef;
+		$must = !$must if $negated;
+    # TODO: provide informative comment related to depends_on/dependend
+    #$data{comment} .= "(Depends on $dep_item)\n" if defined $data{compliant};
   }
   $data{must} = $must;
 
@@ -469,9 +468,11 @@ html, body {
 </head>
 <body>
 
-<h1>Tox Client Standard (TCS) - Compliance Matrix</h1>
+<h1>$C{tcs_items}{name}</h1>
 
-<p><a href="https://tox.gitbooks.io/tox-client-standard/content/index.html">https://tox.gitbooks.io/tox-client-standard/content/index.html</a></p>
+<p><a href="$C{tcs_items}{url}">$C{tcs_items}{url}</a></p>
+
+<p>$C{tcs_items}{description}</p>
 
 <p><strong>Legend:</strong><br>
 <span class="pad must compliant">Yes</span> &mdash; item is required or recommended by TCS, and software implements it.<br>
