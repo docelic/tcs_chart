@@ -8,8 +8,8 @@ TCS points have been converted to parsable JSON format and stored in `tcs_points
 
 Tox software's compliance sheets are found in `tox_software/*.json`.
 
-When `generate.pl` is run with default options, it reads both files and produces a complete compliance table, in HTML format, printed to STDOUT.
-Please run `./generate.pl -h` for all command line options.
+When `generate.pl` is run with default options, it reads both and prints a complete compliance chart, in HTML format, to STDOUT.
+Please run `./generate.pl -h` for all command line options and variations of this basic process.
 
 Users will most likely want to configure options "output file" (`-o`), and possibly "point condition" (`-pc`) and "software condition" (`-sc`).
 The first one configures the output file; the other two specify which subset of TCS points and/or software should be included in the report.
@@ -37,6 +37,12 @@ Using options `-pc` or `-sc` requires at least minimal familiarity with Perl. In
 ./generate.pl -pc 'print Dumper $x; exit'
 ```
 
-## HTML Output Example
+## HTML Output
+
+The chart-like HTML output has been optimized for easy browsing.
+
+All items in the table header column and row (TCS points and software names) contain a tooltip with more information as well as a link to the relevant web page.
+
+All data cells contain tooltips which repeat in plain text the visual representation visible in the chart. They also contain an explanation why a certain TCS point is required, recommended, or not-applicable, and also they include any free-form comments or notes added by the submitter or reviewer of the particular cell's data.
 
 Example of the output can be previewed at https://hcoop.net/~docelic/tcs_full.html
