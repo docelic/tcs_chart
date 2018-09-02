@@ -14,6 +14,7 @@
 # Sat Sep  1 17:53:23 CEST 2018
 
 # TODO:
+# - Use uTox PR to resolve last remaining edge cases in HTML output (e.g. 2.2.2 should be green, right now isn't)
 # - Add total compliance scores/percentages
 # - Implement TODOs from file below
 # - Add more filtering options (e.g. only desktop clients, only mobile clients, etc.)
@@ -438,6 +439,7 @@ html, body {
     font-family: Droid Sans,Verdana,sans-serif;
     font-size: 15px;
     line-height: 1.5;
+		margin-bottom: 1em;
 }
 .pad {
   padding: 5px;
