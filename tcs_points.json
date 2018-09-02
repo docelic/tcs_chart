@@ -50,7 +50,7 @@
               "required": false
             },
             "2": {
-              "required": true,
+							"required": true,
               "depends_on": "!2.2.1"
             },
             "3": {

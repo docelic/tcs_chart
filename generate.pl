@@ -312,11 +312,22 @@ sub compute_compliance {
   if( $$ti{depends_on}) {
     # TODO this code does not support looking up through a dependency chain, but one level only.
     my $dep_point = $$ti{depends_on};
-    my $negated = ( $dep_point =~ s/!//g);
-    $must = $$s{points}{ $dep_point }{compliant} ? $must : undef;
-    $must = !$must if $negated;
+    my $negated = ( $dep_point =~ s/!//g) ? 1 : 0;
 
-    my $verb = status2string($must, "requires", "does not require", "does not apply");
+    if(defined $$s{points}{ $dep_point }{compliant}) {
+      if( $$s{points}{ $dep_point }{compliant} ^ $negated) {
+        # $must is already set to value of 'required'
+      } else {
+        # Condition is false, 'required' does not apply
+        $must = undef;
+        $data{non_applicable} = 1
+      }
+    } else {
+      # Data is missing to determine
+      $must = undef
+    }
+
+    my $verb = status2string($must, "requires", "recommends", "does not apply");
     my $dep_val = status2string($$s{points}{ $dep_point }{compliant});
     if( defined $$s{points}{ $dep_point }{compliant}) {
       $data{comment} .= "TCS $verb $$ti{name} due to $dep_point = $dep_val.\n";
@@ -326,13 +337,13 @@ sub compute_compliance {
       #$data{comment_flag} ||= '*'
     }
   } else {
-    my $verb = status2string($must, "requires", "does not require", "does not apply");
+    my $verb = status2string($must, "requires", "recommends", "does not apply");
     if( defined $data{compliant}) {
       $data{comment} .= "TCS $verb $$ti{name}.\n";
       #$data{comment_flag} ||= '*'
     } else {
-      # TODO: say how to submit missing data?
-      $data{comment} .= "Compliance data for $$ti{name} is missing.\n";
+      # TODO: Include info on how to submit missing data?
+      $data{comment} .= "$$s{shortname} compliance data for $$ti{name} is missing.\n";
     }
   }
   $data{must} = $must;
@@ -393,7 +404,7 @@ sub produce_html_output {
 
       my $class = (defined $$status{must}) ? ($$status{must} ? "must" : "should") : "n-a";
       if( !defined $$status{compliant}) {
-        $display_value = '?'; #(defined $$status{must}) ? '?' : 'N/A';
+        $display_value = $$status{non_applicable} ? 'N/A' : '?';
         $class .= ' unknown'
       } else {
         if( $$status{compliant}) {
@@ -510,12 +521,13 @@ html, body {
 <p>$C{tcs_points}{description}</p>
 
 <p><strong>Legend:</strong><br>
-<span class="pad must compliant">Yes</span> &mdash; point is required or recommended by TCS, and software implements it.<br>
-<span class="pad must non-compliant">No</span> &mdash; point is required by TCS, but software does not implement it.<br>
-<span class="pad should non-compliant">No</span> &mdash; point is recommended by TCS, but software does not implement it.<br>
-<span class="pad n-a compliant">Yes</span> &mdash; TCS does not apply, but software implements point.<br>
-<span class="pad n-a non-compliant">No</span> &mdash; TCS does not apply, and software does not implement point.<br>
-<span class="pad unknown">?</span> &mdash; status is unknown, and pull requests containing updated information are welcome.<br>
+<span class="pad must compliant">Yes</span> &mdash; TCS requires or recommends point, and software implements it.<br>
+<span class="pad should non-compliant">No</span> &mdash; TCS recommends point, but software does not implement it.<br>
+<span class="pad must non-compliant">No</span> &mdash; TCS requires point, but software does not implement it.<br>
+<span class="pad n-a unknown">N/A</span> &mdash; TCS does not apply, and software's implementation of point does not apply or is unknown.<br>
+<span class="pad n-a compliant">Yes</span> &mdash; TCS does not apply, however it is known that software implements point.<br>
+<span class="pad n-a non-compliant">No</span> &mdash; TCS does not apply, however it is known that software does not implement point.<br>
+<span class="pad n-a unknown">?</span> &mdash; Status of implementation is unknown, and pull requests containing updated information are welcome.<br>
 </p>
 
 <table cellspacing="8" cellpadding="0" border="0">
