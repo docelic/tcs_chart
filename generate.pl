@@ -313,11 +313,11 @@ sub compute_compliance {
   # Figure out if this point must be complied to.
   my $must = $$ti{required};
   if( $$ti{depends_on}) {
-		# TODO this code does not support looking up through a dependency chain, but one level only.
-		my $dep_point = $$ti{depends_on};
-		my $negated = ( $dep_point =~ s/!//g);
+    # TODO this code does not support looking up through a dependency chain, but one level only.
+    my $dep_point = $$ti{depends_on};
+    my $negated = ( $dep_point =~ s/!//g);
     $must = $$s{points}{ $dep_point }{compliant} ? $must : undef;
-		$must = !$must if $negated;
+    $must = !$must if $negated;
     # TODO: provide informative comment related to depends_on/dependend
     #$data{comment} .= "(Depends on $dep_point)\n" if defined $data{compliant};
   }
@@ -438,7 +438,7 @@ html, body {
     font-family: Droid Sans,Verdana,sans-serif;
     font-size: 15px;
     line-height: 1.5;
-		margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 .pad {
   padding: 5px;
