@@ -49,8 +49,8 @@ my %C= (
   output_file => '-', # - == STDOUT
   output_format => 'html', # raw | data | html | markdown?
 
-	tcs_items_file => 'tcs_items.json',
-	tox_software_glob => 'tox_software/*.json',
+  tcs_items_file => 'tcs_items.json',
+  tox_software_glob => 'tox_software/*.json',
 
   dump_tcs_items => 0,
   dump_tox_software => 0,
@@ -122,7 +122,7 @@ sub err {
 
 # Returns complete, multiline usage/help string
 sub usage {
-	my $content = "Usage: $0 <options>\n\nOptions:\n";
+  my $content = "Usage: $0 <options>\n\nOptions:\n";
   while(($_, my $desc) = each %getopt) {
     #my $arg = ( $_ =~ s/=.$//) ? " ARG" : "";
     my $negated = s/!//;
@@ -131,7 +131,7 @@ sub usage {
     my ($name, @aliases) = split /\|/;
     @aliases= map { length > 1 ? "--$_" : "-$_"} @aliases;
 
-		my $dfl = $negated ?  ($C{$name} ? "true" : "false") : $C{$name};
+    my $dfl = $negated ?  ($C{$name} ? "true" : "false") : $C{$name};
 
     local $" = ", ";
     $content .= "  --$name, @aliases\n";
@@ -140,7 +140,7 @@ sub usage {
     $content .= "    Current value: $dfl\n";
     $content .= "\n";
   }
-	$content
+  $content
 }
 
 # Returns hashref containing decoded contents of tcs_items.json
@@ -183,7 +183,7 @@ sub dump_tcs_items {
   open my $out, ">$C{output_file}";
   print $out $content;
   close $out;
-	exit 0
+  exit 0
 }
 
 # Dumps Tox software items the way they look to the program.
@@ -203,7 +203,7 @@ sub dump_tox_software {
   open my $out, ">$C{output_file}";
   print $out $content;
   close $out;
-	exit 0
+  exit 0
 }
 
 # Converts nested TCS hierarchy (as specified in tcs_items.json) into flat
@@ -225,9 +225,9 @@ sub flatten_tcs_items {
       while(my($pk,$pidata) = each %{$$paragraph{items}}) {
         my $key = "$sk.$ik.$pk";
         $data{$key} = { 
-					item_string => $key,
-					%$pidata,
-				}
+          item_string => $key,
+          %$pidata,
+        }
       }
     }
   }
@@ -253,17 +253,17 @@ sub dump_tcs_matrix {
   open my $out, ">$C{output_file}";
   print $out $content;
   close $out;
-	exit 0
+  exit 0
 }
 
 # Sort function that sorts TCS items in numerically-correct way
 # (e.g. item "2.2.2" comes before "2.2.10"; "2.2.10" comes before "2.3.1")
 sub compare_item {
-	my @a = split /\./, $_[0];
-	my @b = split /\./, $_[1];
-	( $a[0] <=> $b[0]) ||
-	( $a[1] <=> $b[1]) ||
-	( $a[2] <=> $b[2])
+  my @a = split /\./, $_[0];
+  my @b = split /\./, $_[1];
+  ( $a[0] <=> $b[0]) ||
+  ( $a[1] <=> $b[1]) ||
+  ( $a[2] <=> $b[2])
 }
 
 # Most important functions follow
@@ -272,26 +272,26 @@ sub compare_item {
 # hash with computed TCS compliance data, then saves it to
 # $data{ $tcs_item }{ $software } = { ... computed data ... }
 sub produce_tcs_matrix {
-	my %data;
-	tie %data, 'Tie::IxHash';
+  my %data;
+  tie %data, 'Tie::IxHash';
 
   my @items = sort { compare_item($a,$b) } keys %{$C{tcs_strings}};
-	my @software = sort keys %{$C{tox_software}};
+  my @software = sort keys %{$C{tox_software}};
 
   for my $i(@items) {
-		for my $s(@software) {
-			my $tcs_item = $C{tcs_strings}{$i};
-			my $software = $C{tox_software}{$s};
-			my $software_item = $C{tox_software}{$s}{items}{$i};
+    for my $s(@software) {
+      my $tcs_item = $C{tcs_strings}{$i};
+      my $software = $C{tox_software}{$s};
+      my $software_item = $C{tox_software}{$s}{items}{$i};
 
-			my $computed = compute_compliance( $tcs_item, $software);
+      my $computed = compute_compliance( $tcs_item, $software);
 
-			unless( $data{$i}) {
-				$data{$i}= {};
-				tie %{$data{$i}}, 'Tie::IxHash'
-			}
-			$data{$i}{$s} = $computed
-		}
+      unless( $data{$i}) {
+        $data{$i}= {};
+        tie %{$data{$i}}, 'Tie::IxHash'
+      }
+      $data{$i}{$s} = $computed
+    }
   }
 
   \%data
@@ -304,88 +304,88 @@ sub produce_tcs_matrix {
 # TCS item x.y.z is required IF software implements item a.b.c, or otherwise
 # it does not apply.)
 sub compute_compliance {
-	my($ti, $s) = @_;
-	my $si = $$s{items}{$$ti{item_string}};
+  my($ti, $s) = @_;
+  my $si = $$s{items}{$$ti{item_string}};
 
-	my %data = ();
-	$data{comment} = $$si{comment} || '';
-	$data{compliant} = $si ? $$si{compliant} : undef;
+  my %data = ();
+  $data{comment} = $$si{comment} || '';
+  $data{compliant} = $si ? $$si{compliant} : undef;
 
-	# Figure out if this item must be complied to.
-	my $must = $$ti{required};
-	if( $$ti{depends_on}) {
-		$must = $$s{items}{ $$ti{depends_on} }{compliant} ? $must : undef;
-		# TODO: provide informative comment related to depends_on
-		#$data{comment} .= "(Depends on $$ti{depends_on})\n" if defined $data{compliant};
-	}
-	$data{must} = $must;
+  # Figure out if this item must be complied to.
+  my $must = $$ti{required};
+  if( $$ti{depends_on}) {
+    $must = $$s{items}{ $$ti{depends_on} }{compliant} ? $must : undef;
+    # TODO: provide informative comment related to depends_on
+    #$data{comment} .= "(Depends on $$ti{depends_on})\n" if defined $data{compliant};
+  }
+  $data{must} = $must;
 
-	\%data
+  \%data
 }
 
 # Produces HTML input based on all in-memory data.
 sub produce_html_output {
-	my $content = preamble();
+  my $content = preamble();
 
-	# Produce table header
-	$content.= "<tr><th>TCS</th>";
-	for(sort keys %{$C{tox_software}}) {
-		my $sw = $C{tox_software}{$_};
-		#if( $$sw{name} ne $$sw{shortname}) {
-			$_ = qq|<a href="$$sw{url}" title="$$sw{name} - $$sw{url}">$_</a>|;
-		#} else {
-		#	$_ = qq|<a href="$$sw{url}">$_</a>|
-		#}
-		$content .= "<th>$_</th>"
-	}
-	$content .= "</tr>";
+  # Produce table header
+  $content.= "<tr><th>TCS</th>";
+  for(sort keys %{$C{tox_software}}) {
+    my $sw = $C{tox_software}{$_};
+    #if( $$sw{name} ne $$sw{shortname}) {
+      $_ = qq|<a href="$$sw{url}" title="$$sw{name} - $$sw{url}">$_</a>|;
+    #} else {
+    # $_ = qq|<a href="$$sw{url}">$_</a>|
+    #}
+    $content .= "<th>$_</th>"
+  }
+  $content .= "</tr>";
 
-	# Produce cells data
-	while(my($item,$item_softwares) = each %{$C{tcs_matrix}}) {
-		$content .= qq|<tr><th><a href="#">$item</a></th>|;
-		for my $software(sort keys %$item_softwares) {
-			my $status = $$item_softwares{$software};
-			my $display_value;
+  # Produce cells data
+  while(my($item,$item_softwares) = each %{$C{tcs_matrix}}) {
+    $content .= qq|<tr><th><a href="#">$item</a></th>|;
+    for my $software(sort keys %$item_softwares) {
+      my $status = $$item_softwares{$software};
+      my $display_value;
 
-			# status == {
-			#   comment => ''
-			#   compliant => 1/0
-			#   must => 1/0
-			# }
+      # status == {
+      #   comment => ''
+      #   compliant => 1/0
+      #   must => 1/0
+      # }
 
-			my $class = (defined $$status{must}) ? ($$status{must} ? "must" : "should") : "n-a";
-			if( !defined $$status{compliant}) {
-				$display_value = '?';
-				$class .= ' unknown'
-			} else {
-				if( $$status{compliant}) {
-					$display_value = 'Yes';
-					$class .= ' compliant'
-				} else {
-					$class .= ' non-compliant';
-					#if( defined $$status{must}) {
-						$display_value = 'No';
-					#} else {
-					#	$display_value = 'N/A';
-					#}
-				}
-			}
+      my $class = (defined $$status{must}) ? ($$status{must} ? "must" : "should") : "n-a";
+      if( !defined $$status{compliant}) {
+        $display_value = '?';
+        $class .= ' unknown'
+      } else {
+        if( $$status{compliant}) {
+          $display_value = 'Yes';
+          $class .= ' compliant'
+        } else {
+          $class .= ' non-compliant';
+          #if( defined $$status{must}) {
+            $display_value = 'No';
+          #} else {
+          # $display_value = 'N/A';
+          #}
+        }
+      }
 
-			if($$status{comment}) {
-				$display_value = qq|<span title="$$status{comment}">$display_value (*)</span>|
-			} else {
-				$display_value = qq|<span>$display_value</span>|
-			}
+      if($$status{comment}) {
+        $display_value = qq|<span title="$$status{comment}">$display_value (*)</span>|
+      } else {
+        $display_value = qq|<span>$display_value</span>|
+      }
 
-			$content .= "<td class='$class'>$display_value</td>";
-		}
-		$content .= "</tr>";
-	}
+      $content .= "<td class='$class'>$display_value</td>";
+    }
+    $content .= "</tr>";
+  }
 
-	# Produce footer
-	$content .= postamble();
+  # Produce footer
+  $content .= postamble();
 
-	$content;
+  $content;
 }
 
 ###########################################################
@@ -399,28 +399,28 @@ qq|<!DOCTYPE html>
 th {
     padding-top: 11px;
     padding-bottom: 11px;
-		/* #414141 is Tox website color. Use #4CAF50 if green is OK */
+    /* #414141 is Tox website color. Use #4CAF50 if green is OK */
     background-color: #414141;
-		/* #f5ad1a is Tox website color. Use white if white is OK */
+    /* #f5ad1a is Tox website color. Use white if white is OK */
     color: #f5ad1a;
 }
 td, th {
     border: 1px solid #ddd;
     text-align: center;
     padding: 8px;
-		padding-top: 8px;
-		padding-bottom: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 td a, th a {
-	color: #f5ad1a;
-	text-decoration: none;
+  color: #f5ad1a;
+  text-decoration: none;
 }
 td a:hover, th a:hover {
-	color: #f5ad1a;
-	text-decoration: underline;
+  color: #f5ad1a;
+  text-decoration: underline;
 }
 tr:nth-child(even) {
-	background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 *, ::before, ::after {
     box-sizing: inherit;
@@ -437,22 +437,22 @@ html, body {
     line-height: 1.5;
 }
 .pad {
-	padding: 5px;
-	width: 2em;
-	display: inline-block;
-	text-align: center;
+  padding: 5px;
+  width: 2em;
+  display: inline-block;
+  text-align: center;
 }
 .must.compliant {
-	background-color: #5dba9e;
+  background-color: #5dba9e;
 }
 .must.non-compliant {
-	background-color: #c77979;
+  background-color: #c77979;
 }
 .should.compliant {
-	background-color: #5dba9e;
+  background-color: #5dba9e;
 }
 .should.non-compliant {
-	background-color: #dedb7d; /* #ded840 */
+  background-color: #dedb7d; /* #ded840 */
 }
 .n-a.compliant {
 }
