@@ -1,6 +1,6 @@
 {
   "name": "Tox Client Standard (TCS) - Compliance Matrix",
-  "description": "Tox Client Standard (TCS) is intended to define behaviours that are not enforced by toxcore, but are otherwise required or recommended to ensure proper client interoperability as well as best security practices.\n\nFor a Tox client to be endorsed and supported by the Tox Project, it must, at minimum, comply with every required point in the TCS.\n\nThe following table shows current known state of software compatibility with TCS.",
+  "description": "Tox Client Standard (TCS) is intended to define behaviours that are not enforced by toxcore, but are otherwise required or recommended to ensure proper client interoperability as well as best security practices.\n\nFor a Tox client to be endorsed and supported by the Tox Project, it must, at minimum, comply with every required point in the TCS.\n\nThe following table shows current known state of software compliance to the TCS.",
 	"url": "https://tox.gitbooks.io/tox-client-standard/content/index.html",
 
   "points": {
