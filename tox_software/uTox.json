@@ -12,6 +12,7 @@
     "1.0.3": {"compliant": false, "comment": ""},
     "1.0.4": {"compliant": true, "comment": ""},
     "2.1.1": {"compliant": true, "comment": ""},
+    "2.1.2": {"compliant": true, "comment": ""},
     "2.2.1": {"compliant": true, "comment": ""},
     "2.2.2": {"compliant": false, "comment": "N/A"},
     "2.2.3": {"compliant": true, "comment": ""},
