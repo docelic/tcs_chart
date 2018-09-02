@@ -375,7 +375,7 @@ sub produce_html_output {
       }
 
       if($$status{comment}) {
-        $display_value = qq|<span title="$$status{comment}">$display_value (*)</span>|
+        $display_value = qq|<span title="$$status{comment}">$display_value*</span>|
       } else {
         $display_value = qq|<span>$display_value</span>|
       }
