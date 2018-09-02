@@ -40,7 +40,7 @@
     "3.5.4":  {"compliant": true, "comment": ""},
     "4.0.1":  {"compliant": true, "comment": "Binary format."},
     "4.0.2":  {"compliant": false, "comment": ""},
-    "5.0.1":  {"compliant": false, "comment": ""},
+    "5.0.1":  {"compliant": false, "comment": "Not present at profile creation."},
     "5.0.2":  {"compliant": false, "comment": ""},
     "5.0.3":  {"compliant": true, "comment": ""},
     "5.0.4":  {"compliant": false, "comment": "Does not use correct folder for OSX."},
