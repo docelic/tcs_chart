@@ -22,6 +22,7 @@
 # - Make TCS item links work
 # - Fill in basic data for software (name, URL, license, description, language)
 # - Fill in comparison tables
+# - Remove IxHash ties from a couple places where not necessary
 
 # Here goes:
 
