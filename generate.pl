@@ -362,7 +362,7 @@ sub compute_compliance {
   $data{must} = $must;
 
   if($$si{comment}) {
-    $data{comment} .= "$$si{comment}\n";
+    $data{comment} .= "\nComment:\n$$si{comment}\n";
     $data{comment_flag} = '*'
   }
 
