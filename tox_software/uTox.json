@@ -45,6 +45,6 @@
     "5.0.4": {"compliant": false, "comment": "Does not use correct folder for OSX."},
     "5.1.1": {"compliant": false, "comment": ""},
     "5.1.2": {"compliant": true, "comment": ""},
-    "5.1.3": {"compliant": true, "comment": ""},
+    "5.1.3": {"compliant": true, "comment": ""}
   }
 }
