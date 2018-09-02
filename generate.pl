@@ -316,7 +316,7 @@ sub compute_compliance {
     $must = $$s{points}{ $dep_point }{compliant} ? $must : undef;
     $must = !$must if $negated;
 
-    my $verb = status2string($must, "requires", "does not require", "does not apply to");
+    my $verb = status2string($must, "requires", "does not require", "does not apply");
     my $dep_val = status2string($$s{points}{ $dep_point }{compliant});
     if( defined $$s{points}{ $dep_point }{compliant}) {
       $data{comment} .= "TCS $verb $$ti{name} due to $dep_point = $dep_val.\n";
@@ -324,6 +324,15 @@ sub compute_compliance {
     } elsif(!defined $$s{points}{ $dep_point }{compliant}) {
       $data{comment} .= "TCS requirement for $$ti{name} is unknown due to $dep_point = $dep_val.\n";
       #$data{comment_flag} ||= '*'
+    }
+  } else {
+    my $verb = status2string($must, "requires", "does not require", "does not apply");
+    if( defined $data{compliant}) {
+      $data{comment} .= "TCS $verb $$ti{name}.\n";
+      #$data{comment_flag} ||= '*'
+    } else {
+      # TODO: say how to submit missing data?
+      $data{comment} .= "Compliance data for $$ti{name} is missing.\n";
     }
   }
   $data{must} = $must;
