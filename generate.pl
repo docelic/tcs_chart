@@ -318,12 +318,29 @@ sub compute_compliance {
     my $negated = ( $dep_point =~ s/!//g);
     $must = $$s{points}{ $dep_point }{compliant} ? $must : undef;
     $must = !$must if $negated;
-    # TODO: provide informative comment related to depends_on/dependend
-    #$data{comment} .= "(Depends on $dep_point)\n" if defined $data{compliant};
+
+    my $verb = must2string($must, "requires", "does not require", "does not apply to");
+    my $dep_val = must2string($$s{points}{ $dep_point }{compliant});
+    $data{comment} .= "TCS $verb $$ti{point_string} due to $dep_point = $dep_val.\n" if defined $data{compliant};
   }
   $data{must} = $must;
 
   \%data
+}
+
+# Converts tri-state value (1,0,undef) into string/word representation
+sub must2string {
+  my( $must, $yes, $no, $na) = @_;
+  if( defined $must) {
+    if ($must) {
+      return $yes || 'Yes'
+    } else {
+      return $no || 'No'
+    }
+  } else {
+    return $na || 'N/A'
+  }
+  err "Unhandled value of 'must': $must", 1;
 }
 
 # Produces HTML output based on all in-memory data.
