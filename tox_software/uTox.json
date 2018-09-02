@@ -6,7 +6,7 @@
   "license": "MIT",
   "language": "C",
   "platforms": ["Windows", "OSX", "BSD", "Linux"],
-  "items": {
+  "points": {
     "1.0.1": {"compliant": true, "comment": ""},
     "1.0.2": {"compliant": false, "comment": ""},
     "1.0.3": {"compliant": false, "comment": ""},

@@ -1,16 +1,16 @@
 {
   "name": "Tox Client Standard (TCS) - Compliance Matrix",
-  "description": "Tox Client Standard (TCS) is intended to define behaviours that are not enforced by toxcore, but are otherwise required or recommended to ensure proper client interoperability as well as best security practices.\n\nFor a Tox client to be endorsed and supported by the Tox Project, it must, at minimum, comply with every required item in the TCS.\n\nThe following table shows current known state of software compatibility with TCS.",
+  "description": "Tox Client Standard (TCS) is intended to define behaviours that are not enforced by toxcore, but are otherwise required or recommended to ensure proper client interoperability as well as best security practices.\n\nFor a Tox client to be endorsed and supported by the Tox Project, it must, at minimum, comply with every required point in the TCS.\n\nThe following table shows current known state of software compatibility with TCS.",
 	"url": "https://tox.gitbooks.io/tox-client-standard/content/index.html",
 
-  "items": {
+  "points": {
     "1": {
       "name": "General requirements",
       "url": "https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html",
       "description": "",
-      "items": {
+      "points": {
         "0": {
-          "items": {
+          "points": {
             "1": {
               "required": true
             },
@@ -29,11 +29,11 @@
     },
     "2": {
       "name": "User Identification",
-      "items": {
+      "points": {
         "1": {
           "name": "Tox ID",
           "url": "https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html",
-          "items": {
+          "points": {
             "1": {
               "required": true
             },
@@ -45,7 +45,7 @@
         "2": {
           "name": "Avatar",
           "url": "https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html",
-          "items": {
+          "points": {
             "1": {
               "required": false
             },
@@ -95,11 +95,11 @@
     },
     "3": {
       "name": "Communication",
-      "items": {
+      "points": {
         "1": {
           "name": "Friend Requests",
           "url": "https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html",
-          "items": {
+          "points": {
             "1": {
               "required": true
             },
@@ -111,7 +111,7 @@
         "2": {
           "name": "Group Chats",
           "url": "https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html",
-          "items": {
+          "points": {
             "1": {
               "required": false
             },
@@ -127,7 +127,7 @@
         "3": {
           "name": "Calls",
           "url": "https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html",
-          "items": {
+          "points": {
             "1": {
               "required": true
             },
@@ -143,7 +143,7 @@
         "4": {
           "name": "File Transfers",
           "url": "https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html",
-          "items": {
+          "points": {
             "1": {
               "required": false
             },
@@ -156,7 +156,7 @@
         "5": {
           "name": "Message Formatting",
           "url": "https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html",
-          "items": {
+          "points": {
             "1": {
               "required": true
             },
@@ -176,9 +176,9 @@
     "4": {
       "name": "Message Persistence",
       "url": "https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html",
-      "items": {
+      "points": {
         "0": {
-          "items": {
+          "points": {
             "1": {
               "required": false
             },
@@ -192,9 +192,9 @@
     "5": {
       "name": "Data Storage",
       "url": "https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html",
-      "items": {
+      "points": {
         "0": {
-          "items": {
+          "points": {
             "1": {
               "required": true
             },
@@ -212,7 +212,7 @@
         "1": {
           "name": "Export Format",
           "url": "https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html",
-          "items": {
+          "points": {
             "1": {
               "required": true
             },

@@ -6,7 +6,7 @@
   "license": "GPL-3.0",
   "language": "Mono",
   "platforms": ["Linux", "Windows"],
-  "items": {
+  "points": {
     "1.0.1":  { "compliant": true, "comment": "" },
     "1.0.2":  { "compliant": false, "comment": "" },
     "1.0.3":  { "compliant": true, "comment": "True with comment" },

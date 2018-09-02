@@ -2,10 +2,10 @@
 
 # This script reads in two sources of data:
 #
-# 1) Tox TCS specification in JSON format (tcs_items.json)
+# 1) Tox TCS specification in JSON format (tcs_points.json)
 # 2) Compliance sheets for various Tox software (tox_software/*.json)
 #
-# Then it produces a "compliance matrix", combining all TSC items and
+# Then it produces a "compliance matrix", combining all TSC points and
 # software in a 2D table.
 #
 # Please use option -h for all command line options.
@@ -18,8 +18,8 @@
 # - Implement TODOs from file below
 # - Add more filtering options (e.g. only desktop clients, only mobile clients, etc.)
 # - Add more comparison options (e.g. app1 vs app2 vs app3)
-# - Generate text parts (e.g. "TCS item 1.0.1 is implemented by <clients>")
-# - Make TCS item links work
+# - Generate text parts (e.g. "TCS point 1.0.1 is implemented by <clients>")
+# - Make TCS point links work
 # - Fill in basic data for software (name, URL, license, description, language)
 # - Fill in comparison tables
 # - Find a way to display software license/platform/language etc. (Use title="" on software name to embed this info?)
@@ -51,10 +51,10 @@ my %C= (
   output_file => '-', # - == STDOUT
   output_format => 'html', # raw | data | html | markdown?
 
-  tcs_items_file => 'tcs_items.json',
+  tcs_points_file => 'tcs_points.json',
   tox_software_glob => 'tox_software/*.json',
 
-  dump_tcs_items => 0,
+  dump_tcs_points => 0,
   dump_tox_software => 0,
   dump_tcs_matrix => 1,
 );
@@ -66,10 +66,10 @@ tie my %getopt, 'Tie::IxHash';
   'output_file|output-file|file=s' => "Output file for ALL outgoing data ( - == STDOUT)",
   'output_format|output-format|format|fmt|f=s' => "Output format for ALL outgoing data (raw | data | html)",
 
-  'tcs_items_file|tcs-items-file|tcsitems|items=s' => "Name of input JSON containing TCS items",
+  'tcs_points_file|tcs-points-file|tcspoints|points=s' => "Name of input JSON containing TCS points",
   'tox_software_glob|tox-software-glob|software|glob=s' => "Glob pattern to use when finding Tox software JSONs",
 
-  'dump_tcs_items|dump-tcs-items|dump-items|ditems|di!' => "Dump TCS items?",
+  'dump_tcs_points|dump-tcs-points|dump-points|dpoints|di!' => "Dump TCS points?",
   'dump_tox_software|dump-tox_software|dump-software|dsoftware|ds!' => "Dump Tox software?",
   'dump_tcs_matrix|dump-tcs_matrix|dump-matrix|dmatrix|dm!' => "Dump TCS matrix?",
 );
@@ -82,11 +82,11 @@ unless(GetOptions(
 
 # Basic initialization and special cases based on cmdline options
 
-$C{tcs_items} = load_tcs_items();
+$C{tcs_points} = load_tcs_points();
 $C{tox_software} = load_tox_software();
-$C{tcs_strings} = flatten_tcs_items();
+$C{tcs_strings} = flatten_tcs_points();
 
-dump_tcs_items() if $C{dump_tcs_items};
+dump_tcs_points() if $C{dump_tcs_points};
 dump_tox_software() if $C{dump_tox_software};
 
 # Main/standard work starts here
@@ -145,9 +145,9 @@ sub usage {
   $content
 }
 
-# Returns hashref containing decoded contents of tcs_items.json
-sub load_tcs_items {
- $json->decode(read_file $C{tcs_items_file})
+# Returns hashref containing decoded contents of tcs_points.json
+sub load_tcs_points {
+ $json->decode(read_file $C{tcs_points_file})
 }
 
 # Returns hashref of all JSONs found and decoded after glob expansion of tox_software_glob.
@@ -164,17 +164,17 @@ sub load_tox_software {
   \%data
 }
 
-# Dumps TCS items the way they look to the program.
+# Dumps TCS points the way they look to the program.
 # In case of format 'raw', dumps the raw result of JSON decode.
-# In case of format 'data', returns the result after flattening items' keys.
+# In case of format 'data', returns the result after flattening points' keys.
 # Example:
 #  raw: { 1 => { 0 => { 1 => ... }}}
 #  data: { "1.0.1" => ...}
-sub dump_tcs_items {
+sub dump_tcs_points {
   my $content;
 
   if( $C{output_format} eq 'raw') {
-    $content = $json->encode( $C{tcs_items});
+    $content = $json->encode( $C{tcs_points});
   } elsif( $C{output_format} eq 'data') {
     $content = $json->encode( $C{tcs_strings});
   } else {
@@ -187,7 +187,7 @@ sub dump_tcs_items {
   exit 0
 }
 
-# Dumps Tox software items the way they look to the program.
+# Dumps Tox software points the way they look to the program.
 # In case of format 'raw', dumps the raw result of JSON decode.
 # In case of format 'data', returns current (possibly modified) data in memory.
 sub dump_tox_software {
@@ -207,25 +207,25 @@ sub dump_tox_software {
   exit 0
 }
 
-# Converts nested TCS hierarchy (as specified in tcs_items.json) into flat
-# hash structure of: ( tcs_item_string => { TCS item data } )
+# Converts nested TCS hierarchy (as specified in tcs_points.json) into flat
+# hash structure of: ( tcs_point_string => { TCS point data } )
 #
-# Example input ("section" => { "item" => "paragraph" => { ... data ...}}):
+# Example input ("section" => { "point" => "paragraph" => { ... data ...}}):
 #   "4" => { "0" => "1" => { name: "test"}}
 #
 # Example output ("s.i.p" => { ... data ... }):
 #   "4.0.1" => { name: "test" }
 #
-sub flatten_tcs_items {
+sub flatten_tcs_points {
   my %data;
 
-  my $section = $C{tcs_items};
-  while(my($sk,$item) = each %{$$section{items}}) {
-    while(my($ik,$paragraph) = each %{$$item{items}}) {
-      while(my($pk,$pidata) = each %{$$paragraph{items}}) {
+  my $section = $C{tcs_points};
+  while(my($sk,$point) = each %{$$section{points}}) {
+    while(my($ik,$paragraph) = each %{$$point{points}}) {
+      while(my($pk,$pidata) = each %{$$paragraph{points}}) {
         my $key = "$sk.$ik.$pk";
         $data{$key} = { 
-          item_string => $key,
+          point_string => $key,
           %$pidata,
         }
       }
@@ -256,9 +256,9 @@ sub dump_tcs_matrix {
   exit 0
 }
 
-# Sort function that sorts TCS items in numerically-correct way
-# (e.g. item "2.2.2" comes before "2.2.10"; "2.2.10" comes before "2.3.1")
-sub compare_item {
+# Sort function that sorts TCS points in numerically-correct way
+# (e.g. point "2.2.2" comes before "2.2.10"; "2.2.10" comes before "2.3.1")
+sub compare_point {
   my @a = split /\./, $_[0];
   my @b = split /\./, $_[1];
   ( $a[0] <=> $b[0]) ||
@@ -268,23 +268,23 @@ sub compare_item {
 
 # Most important functions follow
 
-# Iterates through all items and selected software. For each pair, it creates
+# Iterates through all points and selected software. For each pair, it creates
 # hash with computed TCS compliance data, then saves it to
-# $data{ $tcs_item }{ $software } = { ... computed data ... }
+# $data{ $tcs_point }{ $software } = { ... computed data ... }
 sub produce_tcs_matrix {
   my %data;
   tie %data, 'Tie::IxHash';
 
-  my @items = sort { compare_item($a,$b) } keys %{$C{tcs_strings}};
+  my @points = sort { compare_point($a,$b) } keys %{$C{tcs_strings}};
   my @software = sort keys %{$C{tox_software}};
 
-  for my $i(@items) {
+  for my $i(@points) {
     for my $s(@software) {
-      my $tcs_item = $C{tcs_strings}{$i};
+      my $tcs_point = $C{tcs_strings}{$i};
       my $software = $C{tox_software}{$s};
-      my $software_item = $C{tox_software}{$s}{items}{$i};
+      my $software_point = $C{tox_software}{$s}{points}{$i};
 
-      my $computed = compute_compliance( $tcs_item, $software);
+      my $computed = compute_compliance( $tcs_point, $software);
 
       unless( $data{$i}) {
         $data{$i}= {};
@@ -298,28 +298,28 @@ sub produce_tcs_matrix {
 
 # Computes compliance. This needs to be computed rather than just taken
 # from input data because the final status may depend on the combination
-# of multiple TCS items and software's state.
+# of multiple TCS points and software's state.
 # (e.g. consider this case:
-# TCS item x.y.z is required IF software implements item a.b.c, or otherwise
+# TCS point x.y.z is required IF software implements point a.b.c, or otherwise
 # it does not apply.)
 sub compute_compliance {
   my($ti, $s) = @_;
-  my $si = $$s{items}{$$ti{item_string}};
+  my $si = $$s{points}{$$ti{point_string}};
 
   my %data = ();
   $data{comment} = $$si{comment} || '';
   $data{compliant} = $si ? $$si{compliant} : undef;
 
-  # Figure out if this item must be complied to.
+  # Figure out if this point must be complied to.
   my $must = $$ti{required};
   if( $$ti{depends_on}) {
 		# TODO this code does not support looking up through a dependency chain, but one level only.
-		my $dep_item = $$ti{depends_on};
-		my $negated = ( $dep_item =~ s/!//g);
-    $must = $$s{items}{ $dep_item }{compliant} ? $must : undef;
+		my $dep_point = $$ti{depends_on};
+		my $negated = ( $dep_point =~ s/!//g);
+    $must = $$s{points}{ $dep_point }{compliant} ? $must : undef;
 		$must = !$must if $negated;
     # TODO: provide informative comment related to depends_on/dependend
-    #$data{comment} .= "(Depends on $dep_item)\n" if defined $data{compliant};
+    #$data{comment} .= "(Depends on $dep_point)\n" if defined $data{compliant};
   }
   $data{must} = $must;
 
@@ -344,10 +344,10 @@ sub produce_html_output {
   $content .= "</tr>";
 
   # Produce cells data
-  while(my($item,$item_softwares) = each %{$C{tcs_matrix}}) {
-    $content .= qq|<tr><th><a href="#">$item</a></th>|;
-    for my $software(sort keys %$item_softwares) {
-      my $status = $$item_softwares{$software};
+  while(my($point,$point_softwares) = each %{$C{tcs_matrix}}) {
+    $content .= qq|<tr><th><a href="#">$point</a></th>|;
+    for my $software(sort keys %$point_softwares) {
+      my $status = $$point_softwares{$software};
       my $display_value;
 
       # status == {
@@ -468,18 +468,18 @@ html, body {
 </head>
 <body>
 
-<h1>$C{tcs_items}{name}</h1>
+<h1>$C{tcs_points}{name}</h1>
 
-<p><a href="$C{tcs_items}{url}">$C{tcs_items}{url}</a></p>
+<p><a href="$C{tcs_points}{url}">$C{tcs_points}{url}</a></p>
 
-<p>$C{tcs_items}{description}</p>
+<p>$C{tcs_points}{description}</p>
 
 <p><strong>Legend:</strong><br>
-<span class="pad must compliant">Yes</span> &mdash; item is required or recommended by TCS, and software implements it.<br>
-<span class="pad must non-compliant">No</span> &mdash; item is required by TCS, but software does not implement it.<br>
-<span class="pad should non-compliant">No</span> &mdash; item is recommended by TCS, but software does not implement it.<br>
-<span class="pad n-a compliant">Yes</span> &mdash; TCS does not apply, but software implements item.<br>
-<span class="pad n-a non-compliant">No</span> &mdash; TCS does not apply, and software does not implement item.<br>
+<span class="pad must compliant">Yes</span> &mdash; point is required or recommended by TCS, and software implements it.<br>
+<span class="pad must non-compliant">No</span> &mdash; point is required by TCS, but software does not implement it.<br>
+<span class="pad should non-compliant">No</span> &mdash; point is recommended by TCS, but software does not implement it.<br>
+<span class="pad n-a compliant">Yes</span> &mdash; TCS does not apply, but software implements point.<br>
+<span class="pad n-a non-compliant">No</span> &mdash; TCS does not apply, and software does not implement point.<br>
 <span class="pad unknown">?</span> &mdash; status is unknown, and pull requests containing updated information are welcome.<br>
 </p>
 

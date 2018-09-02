@@ -6,7 +6,7 @@
   "license": "GPL-3.0",
   "language": "C++",
   "platforms": ["Linux"],
-  "items": {
+  "points": {
     "1.0.1":  { "compliant": true, "comment": "" },
     "1.0.2":  { "compliant": true, "comment": "" },
     "1.0.3":  { "compliant": true, "comment": "" },

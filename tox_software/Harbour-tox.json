@@ -6,7 +6,7 @@
   "license": "",
   "language": "",
   "platforms": ["SailfishOS (Jolla)"],
-  "items": {
+  "points": {
     "1.0.1":  { "compliant": null, "comment": "" },
     "1.0.2":  { "compliant": null, "comment": "" },
     "1.0.3":  { "compliant": null, "comment": "" },
