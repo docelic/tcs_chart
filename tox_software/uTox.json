@@ -5,7 +5,7 @@
   "url": "https://github.com/utox/utox",
   "license": "MIT",
   "language": "C",
-  "platforms": [],
+  "platforms": ["Windows", "OSX", "BSD", "Linux"],
   "items": {
     "1.0.1": {"compliant": true, "comment": ""},
     "1.0.2": {"compliant": false, "comment": ""},
