@@ -39,9 +39,9 @@ Using options `-pc` or `-sc` requires at least minimal familiarity with Perl. In
 
 ## HTML Output
 
-The chart-like HTML output has been optimized for easy browsing.
+The chart-like HTML output has been optimized for easy examination.
 
-All items in the table header column and row (TCS points and software names) contain a tooltip with more information as well as a link to the relevant web page.
+All items in the header column and header row (TCS points and software names) contain a tooltip with more information as well as a link to the relevant web page.
 
 All data cells contain tooltips which repeat in plain text the visual representation visible in the chart. They also contain an explanation why a certain TCS point is required, recommended, or not-applicable, and also they include any free-form comments or notes added by the submitter or reviewer of the particular cell's data.
 
