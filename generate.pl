@@ -23,7 +23,8 @@
 # - Fill in basic data for software (name, URL, license, description, language)
 # - Fill in comparison tables
 # - Remove IxHash ties from a couple places where not necessary
-# - Find a way to display software licenses etc. (Use title="" on software name to embed this info?)
+# - Find a way to display software license/platform/language etc. (Use title="" on software name to embed this info?)
+# - Add "X" button to every column and row, and minimal JavaScript to remove the respective column or row
 
 # Here goes:
 
