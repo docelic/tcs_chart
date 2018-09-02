@@ -15,8 +15,6 @@
 
 # TODO:
 # - Add total compliance scores/percentages
-# - Add more filtering options (e.g. only desktop clients, only mobile clients, etc.)
-# - Add more comparison options (e.g. app1 vs app2 vs app3)
 # - Generate text parts (e.g. "TCS point 1.0.1 is implemented by <clients>")
 # - Add "X" button to every column and row, and minimal JavaScript to remove the respective column or row
 
@@ -49,6 +47,9 @@ my %C= (
   tcs_points_file => 'tcs_points.json',
   tox_software_glob => 'tox_software/*.json',
 
+  point_condition => '1',
+  software_condition => '1',
+
   dump_tcs_points => 0,
   dump_tox_software => 0,
   dump_tcs_matrix => 1,
@@ -58,11 +59,14 @@ my %C= (
 
 tie my %getopt, 'Tie::IxHash';
 %getopt = (
-  'output_file|output-file|file=s' => "Output file for ALL outgoing data ( - == STDOUT)",
+  'output_file|output-file|file|output|o=s' => "Output file for ALL outgoing data ( - == STDOUT)",
   'output_format|output-format|format|fmt|f=s' => "Output format for ALL outgoing data (raw | data | html)",
 
   'tcs_points_file|tcs-points-file|tcspoints|points=s' => "Name of input JSON containing TCS points",
   'tox_software_glob|tox-software-glob|software|glob=s' => "Glob pattern to use when finding Tox software JSONs",
+
+  'point_condition|point-condition|pc=s' => "Code which filters list of TCS points to display",
+  'software_condition|software-condition|sc=s' => "Code which filters list of software to display",
 
   'dump_tcs_points|dump-tcs-points|dump-points|dpoints|di!' => "Dump TCS points?",
   'dump_tox_software|dump-tox_software|dump-software|dsoftware|ds!' => "Dump Tox software?",
@@ -152,8 +156,14 @@ sub load_tox_software {
   my %data;
 
   for(@software) {
-    my $struct = $json->decode(read_file $_);
-    $data{$$struct{shortname}} = $struct;
+    my $x = $json->decode(read_file $_);
+
+    my $do_include = eval $C{software_condition};
+    if( $@) { err "Error running --software_condition code: $@", 1 }
+
+    if($do_include) {
+      $data{$$x{shortname}} = $x;
+    }
   }
 
   \%data
@@ -217,13 +227,15 @@ sub flatten_tcs_points {
   my $section = $C{tcs_points};
   while(my($sk,$point) = each %{$$section{points}}) {
     while(my($ik,$paragraph) = each %{$$point{points}}) {
-      while(my($pk,$pidata) = each %{$$paragraph{points}}) {
+      while(my($pk,$x) = each %{$$paragraph{points}}) {
         my $key = "$sk.$ik.$pk";
-        $data{$key} = { 
-          name => $key,
-          %$pidata,
-        };
-        $data{$key}{url} ||= $$paragraph{url} || $$point{url};
+        $$x{name} = $key;
+        $$x{url} ||= $$paragraph{url} || $$point{url};
+
+        my $do_include = eval $C{point_condition};
+        if($@) { err "Error running --point_condition code: $@", 1 }
+
+        $data{$key} = $x if $do_include
       }
     }
   }
