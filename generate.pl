@@ -475,7 +475,7 @@ html, body {
 <span class="pad should non-compliant">No</span> &mdash; item is recommended by TCS, but software does not implement it.<br>
 <span class="pad n-a compliant">Yes</span> &mdash; TCS does not apply, but software implements item.<br>
 <span class="pad n-a non-compliant">No</span> &mdash; TCS does not apply, and software does not implement item.<br>
-<span class="pad unknown">?</span> &mdash; status is unknown, pull requests containing updated information are welcome.<br>
+<span class="pad unknown">?</span> &mdash; status is unknown, and pull requests containing updated information are welcome.<br>
 </p>
 
 <table cellspacing="8" cellpadding="0" border="0">
