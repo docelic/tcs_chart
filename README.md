@@ -35,6 +35,8 @@ Using options `-pc` or `-sc` requires at least minimal familiarity with Perl. In
 
 # Use option -pc or -sc to quickly dump the structure of element $x
 ./generate.pl -pc 'print Dumper $x; exit'
+# or
+./generate.pl -pc 'print $json->encode($x); exit'
 ```
 
 ## HTML Output

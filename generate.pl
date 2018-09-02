@@ -50,6 +50,8 @@ my %C= (
   point_condition => '1',
   software_condition => '1',
 
+  repeat_header => '1',
+
   dump_tcs_points => 0,
   dump_tox_software => 0,
   dump_tcs_matrix => 1,
@@ -67,6 +69,8 @@ tie my %getopt, 'Tie::IxHash';
 
   'point_condition|point-condition|pc=s' => "Code which filters list of TCS points to display",
   'software_condition|software-condition|sc=s' => "Code which filters list of software to display",
+
+  'repeat_header|repeat-header|h!' => "Repeat HTML table header at the bottom of table?",
 
   'dump_tcs_points|dump-tcs-points|dump-points|dpoints|di!' => "Dump TCS points?",
   'dump_tox_software|dump-tox_software|dump-software|dsoftware|ds!' => "Dump Tox software?",
@@ -90,7 +94,9 @@ dump_tox_software() if $C{dump_tox_software};
 
 # Main/standard work starts here
 
+# NOTE: the values in $C{stats} will be filled in during produce_tcs_matrix()
 $C{tcs_matrix} = produce_tcs_matrix();
+$C{scores} = produce_scores();
 
 print dump_tcs_matrix() if $C{dump_tcs_matrix};
 
@@ -293,6 +299,7 @@ sub produce_tcs_matrix {
       my $software_point = $C{tox_software}{$s}{points}{$i};
 
       my $computed = compute_compliance( $tcs_point, $software);
+      update_stats($computed);
 
       unless( $data{$i}) {
         $data{$i}= {};
@@ -318,6 +325,8 @@ sub compute_compliance {
     comment => "$$s{shortname}\n$$ti{name} = ${\( status2string($$si{compliant}) )}.\n",
     comment_flag => '',
     compliant => $si ? $$si{compliant} : undef,
+    point_name => $$ti{name},
+    software_name => $$s{name},
   );
 
   # Figure out if this point must be complied to.
@@ -369,6 +378,54 @@ sub compute_compliance {
   \%data
 }
 
+# Takes current computed compliance data and uses it to update $C{stats}.
+# This data is later used to produce final 'scores'
+sub update_stats {
+  my $data = shift;
+  my($p, $s) = @$data{qw/point_name software_name/};
+  # $C{stats}{ points / software }{P}{compliant / noncompliant}{name}
+
+  if( $$data{non_applicable}) {
+    $C{stats}{points}{$p}{non_applicable}{$s}= 1;
+    $C{stats}{software}{$s}{non_applicable}{$p}= 1;
+  } else {
+    if( !defined($$data{compliant})) {
+      $C{stats}{points}{$p}{missing}{$s}= 1;
+      $C{stats}{software}{$s}{missing}{$p}= 1;
+    } else {
+      if( defined $$data{must}) {
+        if ($$data{compliant}) {
+          $C{stats}{points}{$p}{compliant}{$s}= 1;
+          $C{stats}{software}{$s}{compliant}{$p}= 1;
+        } else {
+          $C{stats}{points}{$p}{non_compliant}{$s}= 1;
+          $C{stats}{software}{$s}{non_compliant}{$p}= 1;
+        }
+      }
+    }
+  }
+}
+
+sub produce_scores {
+  my $ptr = $C{stats}{software};
+  my %ret;
+
+  while(my($name,$data) = each %$ptr) {
+    my $total = keys(%{$$data{compliant}}) + keys(%{$$data{non_compliant}}) + keys(%{$$data{missing}});
+    $ret{software}{$name} = {
+      compliance_percentage => sprintf('%.0f', keys(%{$$data{compliant}})/$total*100),
+      missing_percentage => sprintf('%.0f', keys(%{$$data{missing}})/$total*100),
+      # Values are incorrect:
+      #compliant => length(keys(%{$$data{compliant}})),
+      #non_compliant =>length(keys(%{$$data{non_compliant}})),
+      #missing =>length(keys(%{$$data{missing}})),
+      #non_applicable => length(keys(%{$$data{non_applicable}})),
+    };
+  }
+
+  \%ret
+}
+
 # Converts tri-state value (1,0,undef) into string/word representation
 sub status2string {
   my( $must, $yes, $no, $na) = @_;
@@ -388,23 +445,8 @@ sub status2string {
 sub produce_html_output {
   my $content = preamble();
 
-  # Produce table header
-  $content.= "<tr><th>TCS</th>";
-  for(sort keys %{$C{tox_software}}) {
-    my $sw = $C{tox_software}{$_};
-    #if( $$sw{name} ne $$sw{shortname}) {
-      my $name_string = $$sw{name};
-      if( $$sw{name} ne $$sw{shortname}) {
-        $name_string.= " ($$sw{shortname})";
-      }
-      my $platforms = join ', ', @{$$sw{platforms}};
-      $_ = qq|<a href="$$sw{url}" title="$name_string\nTox $$sw{type} for $platforms\nHomepage: $$sw{url}\nLanguage: $$sw{language}\nLicense: $$sw{license}">$_</a>|;
-    #} else {
-    # $_ = qq|<a href="$$sw{url}">$_</a>|
-    #}
-    $content .= "<th>$_</th>"
-  }
-  $content .= "</tr>";
+  $content .= produce_softwares_row();
+  $content .= produce_scores_row();
 
   # Produce cells data
   while(my($point,$point_softwares) = each %{$C{tcs_matrix}}) {
@@ -449,10 +491,56 @@ sub produce_html_output {
     $content .= "</tr>";
   }
 
+  if( $C{repeat_header}) {
+    $content .= produce_scores_row();
+    $content .= produce_softwares_row();
+  }
+
   # Produce footer
   $content .= postamble();
 
   $content;
+}
+
+sub produce_softwares_row {
+  my $content = '';
+  $content.= "<tr><th>TCS</th>";
+  for(sort keys %{$C{tox_software}}) {
+    my $sw = $C{tox_software}{$_};
+    #if( $$sw{name} ne $$sw{shortname}) {
+      my $name_string = $$sw{name};
+      if( $$sw{name} ne $$sw{shortname}) {
+        $name_string.= " ($$sw{shortname})";
+      }
+      my $platforms = join ', ', @{$$sw{platforms}};
+      $_ = qq|<a href="$$sw{url}" title="$name_string\nTox $$sw{type} for $platforms\nHomepage: $$sw{url}\nLanguage: $$sw{language}\nLicense: $$sw{license}">$_</a>|;
+    #} else {
+    # $_ = qq|<a href="$$sw{url}">$_</a>|
+    #}
+    $content .= "<th>$_</th>"
+  }
+  $content .= "</tr>\n";
+}
+
+sub produce_scores_row {
+  my $content = '';
+  # Produce percentages
+  $content.= "<tr><th>%</th>";
+  for(sort keys %{$C{tox_software}}) {
+    my $sw = $C{tox_software}{$_};
+    my $name = $$sw{name};
+    my($cp,$ncp,$m,$na, $tpc)= (
+      $C{scores}{software}{$name}{compliant},
+      $C{scores}{software}{$name}{non_compliant},
+      $C{scores}{software}{$name}{missing},
+      $C{scores}{software}{$name}{non_applicable},
+      $C{scores}{software}{$name}{compliance_percentage},
+    );
+    #$content .= qq|<th><span title="$name\nCompliant points: $cp\nNon-compliant points: $ncp\nMissing points data: $m\nNon-applicable points: $na\nTotal score: $tpc%">$tpc%</span></th>|
+    $content .= qq|<th><span>$tpc%</span></th>|
+  }
+  $content .= "</tr>";
+  $content
 }
 
 ###########################################################
@@ -493,14 +581,14 @@ tr:nth-child(even) {
     box-sizing: inherit;
 }
 table{
-    font-size: 16px;
+    /*font-size: 16px;*/
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     border-spacing: 0;
 }
 html, body {
     font-family: Droid Sans,Verdana,sans-serif;
-    font-size: 15px;
+    /*font-size: 15px;*/
     line-height: 1.5;
     margin-bottom: 1em;
 }
