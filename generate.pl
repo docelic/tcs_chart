@@ -26,8 +26,8 @@ use warnings;
 use strict;
 use feature 'say';
 BEGIN {
-  eval { require JSON };
-  if($@) { say "Please install dependencies: libjson-perl"; exit 1}
+  eval { require JSON; require Tie::IxHash };
+  if($@) { say "Please install dependencies: libjson-perl libtie-ixhash-perl"; exit 1}
 }
 use Fatal qw/open close read write/;
 use Data::Dumper qw/Dumper/;
@@ -616,7 +616,7 @@ html, body {
 }
 </style>
 </head>
-<body>
+<body bgcolor="white">
 
 <h1>$C{tcs_points}{name}</h1>
 
