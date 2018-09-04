@@ -490,7 +490,7 @@ sub produce_html_output {
       $content .= "<td class='$class'>$display_value</td>";
     }
     if( $C{repeat_header}) {
-      $content .= qq|<th class="X-$point"><a href="$C{tcs_strings}{$point}{url}">$point</a></th>|;
+      $content .= qq|<th class="X-$point"><a href="$C{tcs_strings}{$point}{url}">$point</a><br><button class="del-btn">X</button></th>|;
     }
     $content .= "</tr>";
   }
