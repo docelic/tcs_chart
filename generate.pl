@@ -450,7 +450,7 @@ sub produce_html_output {
 
   # Produce cells data
   while(my($point,$point_softwares) = each %{$C{tcs_matrix}}) {
-    $content .= qq|<tr><th><button class='delete-button' onclick='deleteRow(this)'>X</button></th><th><a href="$C{tcs_strings}{$point}{url}">$point</a></th>|;
+    $content .= qq|<tr><th class="X-$point"><a href="$C{tcs_strings}{$point}{url}">$point</a><br><button class="del-btn">X</button></th>|;
     for my $software(sort keys %$point_softwares) {
       my $status = $$point_softwares{$software};
       my $display_value;
@@ -462,7 +462,8 @@ sub produce_html_output {
       #   must => 1/0
       # }
 
-      my $class = (defined $$status{must}) ? ($$status{must} ? "must" : "should") : "n-a";
+      my $class = "X-$software X-$point ";
+      $class .= defined $$status{must} ? ($$status{must} ? "must" : "should") : "n-a";
       if( !defined $$status{compliant}) {
         $display_value = $$status{non_applicable} ? 'N/A' : '?';
         $class .= ' unknown'
@@ -488,7 +489,10 @@ sub produce_html_output {
 
       $content .= "<td class='$class'>$display_value</td>";
     }
-    $content .= "<td><button class='delete-button' onclick='deleteRow(this)'>X</button></td></tr>";
+    if( $C{repeat_header}) {
+      $content .= qq|<th class="X-$point"><a href="$C{tcs_strings}{$point}{url}">$point</a></th>|;
+    }
+    $content .= "</tr>";
   }
 
   if( $C{repeat_header}) {
@@ -504,7 +508,7 @@ sub produce_html_output {
 
 sub produce_softwares_row {
   my $content = '';
-  $content.= "<tr><th><button class='delete-button' onclick='deleteRow(this)'>X</button></th><th>TCS</th>";
+  $content.= "<tr><th>TCS</th>";
   for(sort keys %{$C{tox_software}}) {
     my $sw = $C{tox_software}{$_};
     #if( $$sw{name} ne $$sw{shortname}) {
@@ -517,15 +521,18 @@ sub produce_softwares_row {
     #} else {
     # $_ = qq|<a href="$$sw{url}">$_</a>|
     #}
-    $content .= "<th>$_</th>"
+    $content .= qq|<th class='X-$$sw{name}'>$_<br><button class="del-btn">X</button></th>|
   }
-  $content .= "<th><button class='delete-button' onclick='deleteRow(this)'>X</button></th></tr>\n";
+  if( $C{repeat_header}) {
+    $content.= "<th>TCS</th>";
+  }
+  $content .= "</tr>\n";
 }
 
 sub produce_scores_row {
   my $content = '';
   # Produce percentages
-  $content.= "<tr><th><button class='delete-button' onclick='deleteRow(this)'>X</button></th><th>%</th>";
+  $content.= "<tr><th>%</th>";
   for(sort keys %{$C{tox_software}}) {
     my $sw = $C{tox_software}{$_};
     my $name = $$sw{name};
@@ -537,10 +544,12 @@ sub produce_scores_row {
       $C{scores}{software}{$name}{compliance_percentage},
     );
     #$content .= qq|<th><span title="$name\nCompliant points: $cp\nNon-compliant points: $ncp\nMissing points data: $m\nNon-applicable points: $na\nTotal score: $tpc%">$tpc%</span></th>|
-    $content .= qq|<th><span>$tpc%</span></th>|;
+    $content .= qq|<th class="X-$name"><span>$tpc%</span></th>|
   }
-  $content .= "<th><button class='delete-button' onclick='deleteRow(this)'>X</button></th></tr>";
-  print "$content \n";
+  if( $C{repeat_header}) {
+    $content.= "<th>%</th>";
+  }
+  $content .= "</tr>";
   $content
 }
 
@@ -551,12 +560,15 @@ sub preamble {
 qq|<!DOCTYPE html>
 <html lang="en">
 <head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 <style>
 th {
     padding-top: 11px;
     padding-bottom: 11px;
     /* #414141 is Tox website color. Use #4CAF50 if green is OK */
     /* #f5ad1a is Tox website color. Use white if white is OK */
+    height: 50px;
 }
 td, th {
     border: 1px solid #ddd;
@@ -572,6 +584,7 @@ td a, th a {
 td a:hover, th a:hover {
   color: black; /*#f5ad1a;*/
   text-decoration: underline;
+  text-align: center;
 }
 tr:nth-child(even) {
   background-color: #f2f2f2;
@@ -590,6 +603,15 @@ html, body {
     /*font-size: 15px;*/
     line-height: 1.5;
     margin-bottom: 1em;
+}
+button {
+  display: none;
+  background-color: #f44336;
+  margin: 0;
+  width: 20px; height: 20px;
+}
+th:hover button, td:hover button {
+  display: block;
 }
 .pad {
   padding: 5px;
@@ -615,17 +637,7 @@ html, body {
 }
 .unknown {
 }
-
-.delete-button{
-  background-color: #f44336;
-}
 </style>
-<script>
-  function deleteRow(o){
-    var p = o.parentNode.parentNode;
-    p.parentNode.removeChild(p);
-  }
-</script>
 </head>
 <body bgcolor="white">
 
@@ -653,6 +665,19 @@ sub postamble {
 qq|
 </table>
 </body>
+<script>
+var to_attach = document.getElementsByClassName("del-btn");
+for(var i = 0; i < to_attach.length; i++) {
+  to_attach[i].addEventListener('click', (event) => {
+    const cssClasses = Array.from(event.target.parentNode.classList);
+    const tclass = cssClasses.find(cssClass => cssClass.match(/^X-/));
+    var to_hide = document.getElementsByClassName(tclass);
+    for(var j = 0; j < to_hide.length; j++) {
+      to_hide[j].style.display = "none"
+    }
+  })
+}
+</script>
 </html>
 |
 }
