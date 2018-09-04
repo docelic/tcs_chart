@@ -450,7 +450,7 @@ sub produce_html_output {
 
   # Produce cells data
   while(my($point,$point_softwares) = each %{$C{tcs_matrix}}) {
-    $content .= qq|<tr><th><a href="$C{tcs_strings}{$point}{url}">$point</a></th>|;
+    $content .= qq|<tr><th><button class='delete-button' onclick='deleteRow(this)'>X</button></th><th><a href="$C{tcs_strings}{$point}{url}">$point</a></th>|;
     for my $software(sort keys %$point_softwares) {
       my $status = $$point_softwares{$software};
       my $display_value;
@@ -488,7 +488,7 @@ sub produce_html_output {
 
       $content .= "<td class='$class'>$display_value</td>";
     }
-    $content .= "</tr>";
+    $content .= "<td><button class='delete-button' onclick='deleteRow(this)'>X</button></td></tr>";
   }
 
   if( $C{repeat_header}) {
@@ -504,7 +504,7 @@ sub produce_html_output {
 
 sub produce_softwares_row {
   my $content = '';
-  $content.= "<tr><th>TCS</th>";
+  $content.= "<tr><th><button class='delete-button' onclick='deleteRow(this)'>X</button></th><th>TCS</th>";
   for(sort keys %{$C{tox_software}}) {
     my $sw = $C{tox_software}{$_};
     #if( $$sw{name} ne $$sw{shortname}) {
@@ -519,13 +519,13 @@ sub produce_softwares_row {
     #}
     $content .= "<th>$_</th>"
   }
-  $content .= "</tr>\n";
+  $content .= "<th><button class='delete-button' onclick='deleteRow(this)'>X</button></th></tr>\n";
 }
 
 sub produce_scores_row {
   my $content = '';
   # Produce percentages
-  $content.= "<tr><th>%</th>";
+  $content.= "<tr><th><button class='delete-button' onclick='deleteRow(this)'>X</button></th><th>%</th>";
   for(sort keys %{$C{tox_software}}) {
     my $sw = $C{tox_software}{$_};
     my $name = $$sw{name};
@@ -537,9 +537,10 @@ sub produce_scores_row {
       $C{scores}{software}{$name}{compliance_percentage},
     );
     #$content .= qq|<th><span title="$name\nCompliant points: $cp\nNon-compliant points: $ncp\nMissing points data: $m\nNon-applicable points: $na\nTotal score: $tpc%">$tpc%</span></th>|
-    $content .= qq|<th><span>$tpc%</span></th>|
+    $content .= qq|<th><span>$tpc%</span></th>|;
   }
-  $content .= "</tr>";
+  $content .= "<th><button class='delete-button' onclick='deleteRow(this)'>X</button></th></tr>";
+  print "$content \n";
   $content
 }
 
@@ -614,7 +615,17 @@ html, body {
 }
 .unknown {
 }
+
+.delete-button{
+  background-color: #f44336;
+}
 </style>
+<script>
+  function deleteRow(o){
+    var p = o.parentNode.parentNode;
+    p.parentNode.removeChild(p);
+  }
+</script>
 </head>
 <body bgcolor="white">
 
