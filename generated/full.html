@@ -47,12 +47,15 @@ html, body {
 }
 button {
   display: none;
-  background-color: #f44336;
+  background-color: #c77979;
   margin: 0;
   width: 20px; height: 20px;
 }
 th:hover button, td:hover button {
-  display: block;
+  display: inline-block;
+  position: absolute;
+  margin: -25px 0 0 0;
+  border: 1px solid gray;
 }
 .pad {
   padding: 5px;
@@ -103,108 +106,108 @@ The following table shows current known state of software compliance to the TCS.
 </p>
 
 <table cellspacing="8" cellpadding="0" border="0">
-<tr><th>TCS</th><th class='X-Antidote'><a href="" title="Antidote
+<tr><th>TCS</th><th class='X-Antidote'><button class="del-btn">X</button><a href="" title="Antidote
 Tox client for iOS
 Homepage: 
 Language: 
-License: ">Antidote</a><br><button class="del-btn">X</button></th><th class='X-Antox'><a href="" title="Antox
+License: ">Antidote</a></th><th class='X-Antox'><button class="del-btn">X</button><a href="" title="Antox
 Tox client for Android
 Homepage: 
 Language: 
-License: ">Antox</a><br><button class="del-btn">X</button></th><th class='X-CLItox'><a href="" title="CLItox
+License: ">Antox</a></th><th class='X-CLItox'><button class="del-btn">X</button><a href="" title="CLItox
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">CLItox</a><br><button class="del-btn">X</button></th><th class='X-Cyanide'><a href="" title="Cyanide
+License: ">CLItox</a></th><th class='X-Cyanide'><button class="del-btn">X</button><a href="" title="Cyanide
 Tox client for SailfishOS
 Homepage: 
 Language: 
-License: ">Cyanide</a><br><button class="del-btn">X</button></th><th class='X-Detox'><a href="https://github.com/hexafluoride/Detox" title="Detox
+License: ">Cyanide</a></th><th class='X-Detox'><button class="del-btn">X</button><a href="https://github.com/hexafluoride/Detox" title="Detox
 Tox client for Linux, Windows
 Homepage: https://github.com/hexafluoride/Detox
 Language: Mono
-License: GPL-3.0">Detox</a><br><button class="del-btn">X</button></th><th class='X-Fltox'><a href="https://github.com/msteinbeck/fltox" title="Fltox
+License: GPL-3.0">Detox</a></th><th class='X-Fltox'><button class="del-btn">X</button><a href="https://github.com/msteinbeck/fltox" title="Fltox
 Tox client for Linux
 Homepage: https://github.com/msteinbeck/fltox
 Language: C++
-License: GPL-3.0">Fltox</a><br><button class="del-btn">X</button></th><th class='X-Harbour-tox'><a href="" title="Harbour-tox
+License: GPL-3.0">Fltox</a></th><th class='X-Harbour-tox'><button class="del-btn">X</button><a href="" title="Harbour-tox
 Tox client for SailfishOS (Jolla)
 Homepage: 
 Language: 
-License: ">Harbour-tox</a><br><button class="del-btn">X</button></th><th class='X-Isotoxin'><a href="" title="Isotoxin
+License: ">Harbour-tox</a></th><th class='X-Isotoxin'><button class="del-btn">X</button><a href="" title="Isotoxin
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Isotoxin</a><br><button class="del-btn">X</button></th><th class='X-Konv'><a href="" title="Konv
+License: ">Isotoxin</a></th><th class='X-Konv'><button class="del-btn">X</button><a href="" title="Konv
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Konv</a><br><button class="del-btn">X</button></th><th class='X-MirandaNG'><a href="" title="MirandaNG
+License: ">Konv</a></th><th class='X-MirandaNG'><button class="del-btn">X</button><a href="" title="MirandaNG
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">MirandaNG</a><br><button class="del-btn">X</button></th><th class='X-Osmosis.jl'><a href="" title="Osmosis.jl
+License: ">MirandaNG</a></th><th class='X-Osmosis.jl'><button class="del-btn">X</button><a href="" title="Osmosis.jl
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Osmosis.jl</a><br><button class="del-btn">X</button></th><th class='X-Pastox'><a href="" title="Pastox
+License: ">Osmosis.jl</a></th><th class='X-Pastox'><button class="del-btn">X</button><a href="" title="Pastox
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Pastox</a><br><button class="del-btn">X</button></th><th class='X-Ricin'><a href="" title="Ricin
+License: ">Pastox</a></th><th class='X-Ricin'><button class="del-btn">X</button><a href="" title="Ricin
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Ricin</a><br><button class="del-btn">X</button></th><th class='X-TRIfA'><a href="" title="TRIfA
+License: ">Ricin</a></th><th class='X-TRIfA'><button class="del-btn">X</button><a href="" title="TRIfA
 Tox client for Android
 Homepage: 
 Language: 
-License: ">TRIfA</a><br><button class="del-btn">X</button></th><th class='X-ToxDroid'><a href="" title="ToxDroid
+License: ">TRIfA</a></th><th class='X-ToxDroid'><button class="del-btn">X</button><a href="" title="ToxDroid
 Tox client for Android
 Homepage: 
 Language: 
-License: ">ToxDroid</a><br><button class="del-btn">X</button></th><th class='X-Toxer'><a href="" title="Toxer
+License: ">ToxDroid</a></th><th class='X-Toxer'><button class="del-btn">X</button><a href="" title="Toxer
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxer</a><br><button class="del-btn">X</button></th><th class='X-Toxic'><a href="" title="Toxic
+License: ">Toxer</a></th><th class='X-Toxic'><button class="del-btn">X</button><a href="" title="Toxic
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxic</a><br><button class="del-btn">X</button></th><th class='X-Toxy'><a href="" title="Toxy
+License: ">Toxic</a></th><th class='X-Toxy'><button class="del-btn">X</button><a href="" title="Toxy
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxy</a><br><button class="del-btn">X</button></th><th class='X-Toxygen'><a href="" title="Toxygen
+License: ">Toxy</a></th><th class='X-Toxygen'><button class="del-btn">X</button><a href="" title="Toxygen
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxygen</a><br><button class="del-btn">X</button></th><th class='X-Toxzilla'><a href="" title="Toxzilla
+License: ">Toxygen</a></th><th class='X-Toxzilla'><button class="del-btn">X</button><a href="" title="Toxzilla
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxzilla</a><br><button class="del-btn">X</button></th><th class='X-Venom'><a href="" title="Venom
+License: ">Toxzilla</a></th><th class='X-Venom'><button class="del-btn">X</button><a href="" title="Venom
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Venom</a><br><button class="del-btn">X</button></th><th class='X-fToxTun'><a href="" title="fToxTun
+License: ">Venom</a></th><th class='X-fToxTun'><button class="del-btn">X</button><a href="" title="fToxTun
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">fToxTun</a><br><button class="del-btn">X</button></th><th class='X-minitox'><a href="" title="minitox
+License: ">fToxTun</a></th><th class='X-minitox'><button class="del-btn">X</button><a href="" title="minitox
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">minitox</a><br><button class="del-btn">X</button></th><th class='X-qTox'><a href="" title="qTox
+License: ">minitox</a></th><th class='X-qTox'><button class="del-btn">X</button><a href="" title="qTox
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">qTox</a><br><button class="del-btn">X</button></th><th class='X-uTox'><a href="https://github.com/utox/utox" title="uTox
+License: ">qTox</a></th><th class='X-uTox'><button class="del-btn">X</button><a href="https://github.com/utox/utox" title="uTox
 Tox client for Windows, OSX, BSD, Linux
 Homepage: https://github.com/utox/utox
 Language: C
-License: MIT">uTox</a><br><button class="del-btn">X</button></th><th>TCS</th></tr>
-<tr><th>%</th><th class="X-Antidote"><span>0%</span></th><th class="X-Antox"><span>0%</span></th><th class="X-CLItox"><span>0%</span></th><th class="X-Cyanide"><span>0%</span></th><th class="X-Detox"><span>0%</span></th><th class="X-Fltox"><span>0%</span></th><th class="X-Harbour-tox"><span>0%</span></th><th class="X-Isotoxin"><span>0%</span></th><th class="X-Konv"><span>0%</span></th><th class="X-MirandaNG"><span>0%</span></th><th class="X-Osmosis.jl"><span>0%</span></th><th class="X-Pastox"><span>0%</span></th><th class="X-Ricin"><span>0%</span></th><th class="X-TRIfA"><span>0%</span></th><th class="X-ToxDroid"><span>0%</span></th><th class="X-Toxer"><span>0%</span></th><th class="X-Toxic"><span>0%</span></th><th class="X-Toxy"><span>0%</span></th><th class="X-Toxygen"><span>0%</span></th><th class="X-Toxzilla"><span>0%</span></th><th class="X-Venom"><span>0%</span></th><th class="X-fToxTun"><span>0%</span></th><th class="X-minitox"><span>0%</span></th><th class="X-qTox"><span>0%</span></th><th class="X-uTox"><span>61%</span></th><th>%</th></tr><tr><th class="X-1.0.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-1.0.1 must unknown'><span title="Antidote
+License: MIT">uTox</a></th><th>TCS</th></tr>
+<tr><th>%</th><th class="X-Antidote"><span>0%</span></th><th class="X-Antox"><span>0%</span></th><th class="X-CLItox"><span>0%</span></th><th class="X-Cyanide"><span>0%</span></th><th class="X-Detox"><span>0%</span></th><th class="X-Fltox"><span>0%</span></th><th class="X-Harbour-tox"><span>0%</span></th><th class="X-Isotoxin"><span>0%</span></th><th class="X-Konv"><span>0%</span></th><th class="X-MirandaNG"><span>0%</span></th><th class="X-Osmosis.jl"><span>0%</span></th><th class="X-Pastox"><span>0%</span></th><th class="X-Ricin"><span>0%</span></th><th class="X-TRIfA"><span>0%</span></th><th class="X-ToxDroid"><span>0%</span></th><th class="X-Toxer"><span>0%</span></th><th class="X-Toxic"><span>0%</span></th><th class="X-Toxy"><span>0%</span></th><th class="X-Toxygen"><span>0%</span></th><th class="X-Toxzilla"><span>0%</span></th><th class="X-Venom"><span>0%</span></th><th class="X-fToxTun"><span>0%</span></th><th class="X-minitox"><span>0%</span></th><th class="X-qTox"><span>0%</span></th><th class="X-uTox"><span>61%</span></th><th>%</th></tr><tr><th class="X-1.0.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.1</a></th><td class='X-Antidote X-1.0.1 must unknown'><span title="Antidote
 1.0.1 = Unknown.
 Antidote compliance data for 1.0.1 is missing.
 ">?</span></td><td class='X-Antox X-1.0.1 must unknown'><span title="Antox
@@ -279,7 +282,7 @@ qTox compliance data for 1.0.1 is missing.
 ">?</span></td><td class='X-uTox X-1.0.1 must compliant'><span title="uTox
 1.0.1 = Yes.
 TCS requires 1.0.1.
-">Yes</span></td><th class="X-1.0.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-1.0.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-1.0.2 must unknown'><span title="Antidote
+">Yes</span></td><th class="X-1.0.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.1</a></th></tr><tr><th class="X-1.0.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.2</a></th><td class='X-Antidote X-1.0.2 must unknown'><span title="Antidote
 1.0.2 = Unknown.
 Antidote compliance data for 1.0.2 is missing.
 ">?</span></td><td class='X-Antox X-1.0.2 must unknown'><span title="Antox
@@ -354,7 +357,7 @@ qTox compliance data for 1.0.2 is missing.
 ">?</span></td><td class='X-uTox X-1.0.2 must non-compliant'><span title="uTox
 1.0.2 = No.
 TCS requires 1.0.2.
-">No</span></td><th class="X-1.0.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-1.0.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.3</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-1.0.3 must unknown'><span title="Antidote
+">No</span></td><th class="X-1.0.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.2</a></th></tr><tr><th class="X-1.0.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.3</a></th><td class='X-Antidote X-1.0.3 must unknown'><span title="Antidote
 1.0.3 = Unknown.
 Antidote compliance data for 1.0.3 is missing.
 ">?</span></td><td class='X-Antox X-1.0.3 must unknown'><span title="Antox
@@ -429,7 +432,7 @@ qTox compliance data for 1.0.3 is missing.
 ">?</span></td><td class='X-uTox X-1.0.3 must non-compliant'><span title="uTox
 1.0.3 = No.
 TCS requires 1.0.3.
-">No</span></td><th class="X-1.0.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.3</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-1.0.4"><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.4</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-1.0.4 must unknown'><span title="Antidote
+">No</span></td><th class="X-1.0.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.3</a></th></tr><tr><th class="X-1.0.4"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.4</a></th><td class='X-Antidote X-1.0.4 must unknown'><span title="Antidote
 1.0.4 = Unknown.
 Antidote compliance data for 1.0.4 is missing.
 ">?</span></td><td class='X-Antox X-1.0.4 must unknown'><span title="Antox
@@ -504,7 +507,7 @@ qTox compliance data for 1.0.4 is missing.
 ">?</span></td><td class='X-uTox X-1.0.4 must compliant'><span title="uTox
 1.0.4 = Yes.
 TCS requires 1.0.4.
-">Yes</span></td><th class="X-1.0.4"><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.4</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.1.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html">2.1.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.1.1 must unknown'><span title="Antidote
+">Yes</span></td><th class="X-1.0.4"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/general_requirements/general_requirements.html">1.0.4</a></th></tr><tr><th class="X-2.1.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html">2.1.1</a></th><td class='X-Antidote X-2.1.1 must unknown'><span title="Antidote
 2.1.1 = Unknown.
 Antidote compliance data for 2.1.1 is missing.
 ">?</span></td><td class='X-Antox X-2.1.1 must unknown'><span title="Antox
@@ -579,7 +582,7 @@ qTox compliance data for 2.1.1 is missing.
 ">?</span></td><td class='X-uTox X-2.1.1 must compliant'><span title="uTox
 2.1.1 = Yes.
 TCS requires 2.1.1.
-">Yes</span></td><th class="X-2.1.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html">2.1.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.1.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html">2.1.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.1.2 must unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.1.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html">2.1.1</a></th></tr><tr><th class="X-2.1.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html">2.1.2</a></th><td class='X-Antidote X-2.1.2 must unknown'><span title="Antidote
 2.1.2 = Unknown.
 Antidote compliance data for 2.1.2 is missing.
 ">?</span></td><td class='X-Antox X-2.1.2 must unknown'><span title="Antox
@@ -654,7 +657,7 @@ qTox compliance data for 2.1.2 is missing.
 ">?</span></td><td class='X-uTox X-2.1.2 must compliant'><span title="uTox
 2.1.2 = Yes.
 TCS requires 2.1.2.
-">Yes</span></td><th class="X-2.1.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html">2.1.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.1 should unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.1.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/tox_id.html">2.1.2</a></th></tr><tr><th class="X-2.2.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.1</a></th><td class='X-Antidote X-2.2.1 should unknown'><span title="Antidote
 2.2.1 = Unknown.
 Antidote compliance data for 2.2.1 is missing.
 ">?</span></td><td class='X-Antox X-2.2.1 should unknown'><span title="Antox
@@ -729,7 +732,7 @@ qTox compliance data for 2.2.1 is missing.
 ">?</span></td><td class='X-uTox X-2.2.1 should compliant'><span title="uTox
 2.2.1 = Yes.
 TCS recommends 2.2.1.
-">Yes</span></td><th class="X-2.2.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.2 n-a unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.2.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.1</a></th></tr><tr><th class="X-2.2.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.2</a></th><td class='X-Antidote X-2.2.2 n-a unknown'><span title="Antidote
 2.2.2 = Unknown.
 TCS requirement for 2.2.2 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.2 n-a unknown'><span title="Antox
@@ -804,7 +807,7 @@ TCS requirement for 2.2.2 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.2 n-a unknown'><span title="uTox
 2.2.2 = Unknown.
 TCS does not apply 2.2.2 due to 2.2.1 = Yes.
-">N/A</span></td><th class="X-2.2.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.3</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.3 n-a unknown'><span title="Antidote
+">N/A</span></td><th class="X-2.2.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.2</a></th></tr><tr><th class="X-2.2.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.3</a></th><td class='X-Antidote X-2.2.3 n-a unknown'><span title="Antidote
 2.2.3 = Unknown.
 TCS requirement for 2.2.3 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.3 n-a unknown'><span title="Antox
@@ -879,7 +882,7 @@ TCS requirement for 2.2.3 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.3 must compliant'><span title="uTox
 2.2.3 = Yes.
 TCS requires 2.2.3 due to 2.2.1 = Yes.
-">Yes</span></td><th class="X-2.2.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.3</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.4"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.4</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.4 n-a unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.2.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.3</a></th></tr><tr><th class="X-2.2.4"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.4</a></th><td class='X-Antidote X-2.2.4 n-a unknown'><span title="Antidote
 2.2.4 = Unknown.
 TCS requirement for 2.2.4 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.4 n-a unknown'><span title="Antox
@@ -954,7 +957,7 @@ TCS requirement for 2.2.4 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.4 must compliant'><span title="uTox
 2.2.4 = Yes.
 TCS requires 2.2.4 due to 2.2.1 = Yes.
-">Yes</span></td><th class="X-2.2.4"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.4</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.5"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.5</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.5 n-a unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.2.4"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.4</a></th></tr><tr><th class="X-2.2.5"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.5</a></th><td class='X-Antidote X-2.2.5 n-a unknown'><span title="Antidote
 2.2.5 = Unknown.
 TCS requirement for 2.2.5 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.5 n-a unknown'><span title="Antox
@@ -1029,7 +1032,7 @@ TCS requirement for 2.2.5 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.5 must compliant'><span title="uTox
 2.2.5 = Yes.
 TCS requires 2.2.5 due to 2.2.1 = Yes.
-">Yes</span></td><th class="X-2.2.5"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.5</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.6"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.6</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.6 n-a unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.2.5"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.5</a></th></tr><tr><th class="X-2.2.6"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.6</a></th><td class='X-Antidote X-2.2.6 n-a unknown'><span title="Antidote
 2.2.6 = Unknown.
 TCS requirement for 2.2.6 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.6 n-a unknown'><span title="Antox
@@ -1104,7 +1107,7 @@ TCS requirement for 2.2.6 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.6 must non-compliant'><span title="uTox
 2.2.6 = No.
 TCS requires 2.2.6 due to 2.2.1 = Yes.
-">No</span></td><th class="X-2.2.6"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.6</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.7"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.7</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.7 n-a unknown'><span title="Antidote
+">No</span></td><th class="X-2.2.6"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.6</a></th></tr><tr><th class="X-2.2.7"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.7</a></th><td class='X-Antidote X-2.2.7 n-a unknown'><span title="Antidote
 2.2.7 = Unknown.
 TCS requirement for 2.2.7 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.7 n-a unknown'><span title="Antox
@@ -1179,7 +1182,7 @@ TCS requirement for 2.2.7 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.7 must compliant'><span title="uTox
 2.2.7 = Yes.
 TCS requires 2.2.7 due to 2.2.1 = Yes.
-">Yes</span></td><th class="X-2.2.7"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.7</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.8"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.8</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.8 n-a unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.2.7"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.7</a></th></tr><tr><th class="X-2.2.8"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.8</a></th><td class='X-Antidote X-2.2.8 n-a unknown'><span title="Antidote
 2.2.8 = Unknown.
 TCS requirement for 2.2.8 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.8 n-a unknown'><span title="Antox
@@ -1254,7 +1257,7 @@ TCS requirement for 2.2.8 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.8 must compliant'><span title="uTox
 2.2.8 = Yes.
 TCS requires 2.2.8 due to 2.2.1 = Yes.
-">Yes</span></td><th class="X-2.2.8"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.8</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.9"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.9</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.9 n-a unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.2.8"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.8</a></th></tr><tr><th class="X-2.2.9"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.9</a></th><td class='X-Antidote X-2.2.9 n-a unknown'><span title="Antidote
 2.2.9 = Unknown.
 TCS requirement for 2.2.9 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.9 n-a unknown'><span title="Antox
@@ -1329,7 +1332,7 @@ TCS requirement for 2.2.9 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.9 must compliant'><span title="uTox
 2.2.9 = Yes.
 TCS requires 2.2.9 due to 2.2.1 = Yes.
-">Yes</span></td><th class="X-2.2.9"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.9</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.10"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.10</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.10 n-a unknown'><span title="Antidote
+">Yes</span></td><th class="X-2.2.9"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.9</a></th></tr><tr><th class="X-2.2.10"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.10</a></th><td class='X-Antidote X-2.2.10 n-a unknown'><span title="Antidote
 2.2.10 = Unknown.
 TCS requirement for 2.2.10 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.10 n-a unknown'><span title="Antox
@@ -1404,7 +1407,7 @@ TCS requirement for 2.2.10 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.10 must non-compliant'><span title="uTox
 2.2.10 = No.
 TCS requires 2.2.10 due to 2.2.1 = Yes.
-">No</span></td><th class="X-2.2.10"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.10</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-2.2.11"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.11</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-2.2.11 n-a unknown'><span title="Antidote
+">No</span></td><th class="X-2.2.10"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.10</a></th></tr><tr><th class="X-2.2.11"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.11</a></th><td class='X-Antidote X-2.2.11 n-a unknown'><span title="Antidote
 2.2.11 = Unknown.
 TCS requirement for 2.2.11 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-2.2.11 n-a unknown'><span title="Antox
@@ -1479,7 +1482,7 @@ TCS requirement for 2.2.11 is unknown due to 2.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-2.2.11 must non-compliant'><span title="uTox
 2.2.11 = No.
 TCS requires 2.2.11 due to 2.2.1 = Yes.
-">No</span></td><th class="X-2.2.11"><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.11</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.1.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html">3.1.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.1.1 must unknown'><span title="Antidote
+">No</span></td><th class="X-2.2.11"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/user_identification/avatar.html">2.2.11</a></th></tr><tr><th class="X-3.1.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html">3.1.1</a></th><td class='X-Antidote X-3.1.1 must unknown'><span title="Antidote
 3.1.1 = Unknown.
 Antidote compliance data for 3.1.1 is missing.
 ">?</span></td><td class='X-Antox X-3.1.1 must unknown'><span title="Antox
@@ -1554,7 +1557,7 @@ qTox compliance data for 3.1.1 is missing.
 ">?</span></td><td class='X-uTox X-3.1.1 must compliant'><span title="uTox
 3.1.1 = Yes.
 TCS requires 3.1.1.
-">Yes</span></td><th class="X-3.1.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html">3.1.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.1.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html">3.1.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.1.2 must unknown'><span title="Antidote
+">Yes</span></td><th class="X-3.1.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html">3.1.1</a></th></tr><tr><th class="X-3.1.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html">3.1.2</a></th><td class='X-Antidote X-3.1.2 must unknown'><span title="Antidote
 3.1.2 = Unknown.
 Antidote compliance data for 3.1.2 is missing.
 ">?</span></td><td class='X-Antox X-3.1.2 must unknown'><span title="Antox
@@ -1629,7 +1632,7 @@ qTox compliance data for 3.1.2 is missing.
 ">?</span></td><td class='X-uTox X-3.1.2 must compliant'><span title="uTox
 3.1.2 = Yes.
 TCS requires 3.1.2.
-">Yes</span></td><th class="X-3.1.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html">3.1.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.2.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.2.1 should unknown'><span title="Antidote
+">Yes</span></td><th class="X-3.1.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/friend_requests.html">3.1.2</a></th></tr><tr><th class="X-3.2.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.1</a></th><td class='X-Antidote X-3.2.1 should unknown'><span title="Antidote
 3.2.1 = Unknown.
 Antidote compliance data for 3.2.1 is missing.
 ">?</span></td><td class='X-Antox X-3.2.1 should unknown'><span title="Antox
@@ -1704,7 +1707,7 @@ qTox compliance data for 3.2.1 is missing.
 ">?</span></td><td class='X-uTox X-3.2.1 should non-compliant'><span title="uTox
 3.2.1 = No.
 TCS recommends 3.2.1.
-">No</span></td><th class="X-3.2.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.2.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.2.2 n-a unknown'><span title="Antidote
+">No</span></td><th class="X-3.2.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.1</a></th></tr><tr><th class="X-3.2.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.2</a></th><td class='X-Antidote X-3.2.2 n-a unknown'><span title="Antidote
 3.2.2 = Unknown.
 TCS requirement for 3.2.2 is unknown due to 3.2.1 = Unknown.
 ">?</span></td><td class='X-Antox X-3.2.2 n-a unknown'><span title="Antox
@@ -1779,7 +1782,7 @@ TCS requirement for 3.2.2 is unknown due to 3.2.1 = Unknown.
 ">?</span></td><td class='X-uTox X-3.2.2 must non-compliant'><span title="uTox
 3.2.2 = No.
 TCS requires 3.2.2 due to 3.2.1 = No.
-">No</span></td><th class="X-3.2.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.2.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.3</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.2.3 should unknown'><span title="Antidote
+">No</span></td><th class="X-3.2.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.2</a></th></tr><tr><th class="X-3.2.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.3</a></th><td class='X-Antidote X-3.2.3 should unknown'><span title="Antidote
 3.2.3 = Unknown.
 Antidote compliance data for 3.2.3 is missing.
 ">?</span></td><td class='X-Antox X-3.2.3 should unknown'><span title="Antox
@@ -1854,7 +1857,7 @@ qTox compliance data for 3.2.3 is missing.
 ">?</span></td><td class='X-uTox X-3.2.3 should non-compliant'><span title="uTox
 3.2.3 = No.
 TCS recommends 3.2.3.
-">No</span></td><th class="X-3.2.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.3</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.3.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.3.1 must unknown'><span title="Antidote
+">No</span></td><th class="X-3.2.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/group_chats.html">3.2.3</a></th></tr><tr><th class="X-3.3.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.1</a></th><td class='X-Antidote X-3.3.1 must unknown'><span title="Antidote
 3.3.1 = Unknown.
 Antidote compliance data for 3.3.1 is missing.
 ">?</span></td><td class='X-Antox X-3.3.1 must unknown'><span title="Antox
@@ -1929,7 +1932,7 @@ qTox compliance data for 3.3.1 is missing.
 ">?</span></td><td class='X-uTox X-3.3.1 must compliant'><span title="uTox
 3.3.1 = Yes.
 TCS requires 3.3.1.
-">Yes</span></td><th class="X-3.3.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.3.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.3.2 should unknown'><span title="Antidote
+">Yes</span></td><th class="X-3.3.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.1</a></th></tr><tr><th class="X-3.3.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.2</a></th><td class='X-Antidote X-3.3.2 should unknown'><span title="Antidote
 3.3.2 = Unknown.
 Antidote compliance data for 3.3.2 is missing.
 ">?</span></td><td class='X-Antox X-3.3.2 should unknown'><span title="Antox
@@ -2004,7 +2007,7 @@ qTox compliance data for 3.3.2 is missing.
 ">?</span></td><td class='X-uTox X-3.3.2 should compliant'><span title="uTox
 3.3.2 = Yes.
 TCS recommends 3.3.2.
-">Yes</span></td><th class="X-3.3.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.3.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.3</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.3.3 n-a unknown'><span title="Antidote
+">Yes</span></td><th class="X-3.3.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.2</a></th></tr><tr><th class="X-3.3.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.3</a></th><td class='X-Antidote X-3.3.3 n-a unknown'><span title="Antidote
 3.3.3 = Unknown.
 TCS requirement for 3.3.3 is unknown due to 3.3.2 = Unknown.
 ">?</span></td><td class='X-Antox X-3.3.3 n-a unknown'><span title="Antox
@@ -2079,7 +2082,7 @@ TCS requirement for 3.3.3 is unknown due to 3.3.2 = Unknown.
 ">?</span></td><td class='X-uTox X-3.3.3 n-a non-compliant'><span title="uTox
 3.3.3 = No.
 TCS does not apply 3.3.3 due to 3.3.2 = Yes.
-">No</span></td><th class="X-3.3.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.3</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.4.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html">3.4.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.4.1 should unknown'><span title="Antidote
+">No</span></td><th class="X-3.3.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/calls.html">3.3.3</a></th></tr><tr><th class="X-3.4.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html">3.4.1</a></th><td class='X-Antidote X-3.4.1 should unknown'><span title="Antidote
 3.4.1 = Unknown.
 Antidote compliance data for 3.4.1 is missing.
 ">?</span></td><td class='X-Antox X-3.4.1 should unknown'><span title="Antox
@@ -2154,7 +2157,7 @@ qTox compliance data for 3.4.1 is missing.
 ">?</span></td><td class='X-uTox X-3.4.1 should non-compliant'><span title="uTox
 3.4.1 = No.
 TCS recommends 3.4.1.
-">No</span></td><th class="X-3.4.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html">3.4.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.4.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html">3.4.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.4.2 n-a unknown'><span title="Antidote
+">No</span></td><th class="X-3.4.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html">3.4.1</a></th></tr><tr><th class="X-3.4.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html">3.4.2</a></th><td class='X-Antidote X-3.4.2 n-a unknown'><span title="Antidote
 3.4.2 = Unknown.
 TCS requirement for 3.4.2 is unknown due to 3.4.1 = Unknown.
 ">?</span></td><td class='X-Antox X-3.4.2 n-a unknown'><span title="Antox
@@ -2229,7 +2232,7 @@ TCS requirement for 3.4.2 is unknown due to 3.4.1 = Unknown.
 ">?</span></td><td class='X-uTox X-3.4.2 must compliant'><span title="uTox
 3.4.2 = Yes.
 TCS requires 3.4.2 due to 3.4.1 = No.
-">Yes</span></td><th class="X-3.4.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html">3.4.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.5.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.5.1 must unknown'><span title="Antidote
+">Yes</span></td><th class="X-3.4.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/file_transfers.html">3.4.2</a></th></tr><tr><th class="X-3.5.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.1</a></th><td class='X-Antidote X-3.5.1 must unknown'><span title="Antidote
 3.5.1 = Unknown.
 Antidote compliance data for 3.5.1 is missing.
 ">?</span></td><td class='X-Antox X-3.5.1 must unknown'><span title="Antox
@@ -2304,7 +2307,7 @@ qTox compliance data for 3.5.1 is missing.
 ">?</span></td><td class='X-uTox X-3.5.1 must non-compliant'><span title="uTox
 3.5.1 = No.
 TCS requires 3.5.1.
-">No</span></td><th class="X-3.5.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.5.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.5.2 must unknown'><span title="Antidote
+">No</span></td><th class="X-3.5.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.1</a></th></tr><tr><th class="X-3.5.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.2</a></th><td class='X-Antidote X-3.5.2 must unknown'><span title="Antidote
 3.5.2 = Unknown.
 Antidote compliance data for 3.5.2 is missing.
 ">?</span></td><td class='X-Antox X-3.5.2 must unknown'><span title="Antox
@@ -2379,7 +2382,7 @@ qTox compliance data for 3.5.2 is missing.
 ">?</span></td><td class='X-uTox X-3.5.2 must compliant'><span title="uTox
 3.5.2 = Yes.
 TCS requires 3.5.2.
-">Yes</span></td><th class="X-3.5.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.5.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.3</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.5.3 must unknown'><span title="Antidote
+">Yes</span></td><th class="X-3.5.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.2</a></th></tr><tr><th class="X-3.5.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.3</a></th><td class='X-Antidote X-3.5.3 must unknown'><span title="Antidote
 3.5.3 = Unknown.
 Antidote compliance data for 3.5.3 is missing.
 ">?</span></td><td class='X-Antox X-3.5.3 must unknown'><span title="Antox
@@ -2454,7 +2457,7 @@ qTox compliance data for 3.5.3 is missing.
 ">?</span></td><td class='X-uTox X-3.5.3 must compliant'><span title="uTox
 3.5.3 = Yes.
 TCS requires 3.5.3.
-">Yes</span></td><th class="X-3.5.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.3</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-3.5.4"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.4</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-3.5.4 must unknown'><span title="Antidote
+">Yes</span></td><th class="X-3.5.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.3</a></th></tr><tr><th class="X-3.5.4"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.4</a></th><td class='X-Antidote X-3.5.4 must unknown'><span title="Antidote
 3.5.4 = Unknown.
 Antidote compliance data for 3.5.4 is missing.
 ">?</span></td><td class='X-Antox X-3.5.4 must unknown'><span title="Antox
@@ -2529,7 +2532,7 @@ qTox compliance data for 3.5.4 is missing.
 ">?</span></td><td class='X-uTox X-3.5.4 must compliant'><span title="uTox
 3.5.4 = Yes.
 TCS requires 3.5.4.
-">Yes</span></td><th class="X-3.5.4"><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.4</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-4.0.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html">4.0.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-4.0.1 should unknown'><span title="Antidote
+">Yes</span></td><th class="X-3.5.4"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/communication/message_formatting.html">3.5.4</a></th></tr><tr><th class="X-4.0.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html">4.0.1</a></th><td class='X-Antidote X-4.0.1 should unknown'><span title="Antidote
 4.0.1 = Unknown.
 Antidote compliance data for 4.0.1 is missing.
 ">?</span></td><td class='X-Antox X-4.0.1 should unknown'><span title="Antox
@@ -2607,7 +2610,7 @@ TCS recommends 4.0.1.
 
 Comment:
 Binary format.
-">Yes*</span></td><th class="X-4.0.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html">4.0.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-4.0.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html">4.0.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-4.0.2 should unknown'><span title="Antidote
+">Yes*</span></td><th class="X-4.0.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html">4.0.1</a></th></tr><tr><th class="X-4.0.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html">4.0.2</a></th><td class='X-Antidote X-4.0.2 should unknown'><span title="Antidote
 4.0.2 = Unknown.
 Antidote compliance data for 4.0.2 is missing.
 ">?</span></td><td class='X-Antox X-4.0.2 should unknown'><span title="Antox
@@ -2682,7 +2685,7 @@ qTox compliance data for 4.0.2 is missing.
 ">?</span></td><td class='X-uTox X-4.0.2 should non-compliant'><span title="uTox
 4.0.2 = No.
 TCS recommends 4.0.2.
-">No</span></td><th class="X-4.0.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html">4.0.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-5.0.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-5.0.1 must unknown'><span title="Antidote
+">No</span></td><th class="X-4.0.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/message_persistence/message_persistence.html">4.0.2</a></th></tr><tr><th class="X-5.0.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.1</a></th><td class='X-Antidote X-5.0.1 must unknown'><span title="Antidote
 5.0.1 = Unknown.
 Antidote compliance data for 5.0.1 is missing.
 ">?</span></td><td class='X-Antox X-5.0.1 must unknown'><span title="Antox
@@ -2760,7 +2763,7 @@ TCS requires 5.0.1.
 
 Comment:
 Not present at profile creation.
-">No*</span></td><th class="X-5.0.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-5.0.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-5.0.2 should unknown'><span title="Antidote
+">No*</span></td><th class="X-5.0.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.1</a></th></tr><tr><th class="X-5.0.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.2</a></th><td class='X-Antidote X-5.0.2 should unknown'><span title="Antidote
 5.0.2 = Unknown.
 Antidote compliance data for 5.0.2 is missing.
 ">?</span></td><td class='X-Antox X-5.0.2 should unknown'><span title="Antox
@@ -2835,7 +2838,7 @@ qTox compliance data for 5.0.2 is missing.
 ">?</span></td><td class='X-uTox X-5.0.2 should non-compliant'><span title="uTox
 5.0.2 = No.
 TCS recommends 5.0.2.
-">No</span></td><th class="X-5.0.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-5.0.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.3</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-5.0.3 must unknown'><span title="Antidote
+">No</span></td><th class="X-5.0.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.2</a></th></tr><tr><th class="X-5.0.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.3</a></th><td class='X-Antidote X-5.0.3 must unknown'><span title="Antidote
 5.0.3 = Unknown.
 Antidote compliance data for 5.0.3 is missing.
 ">?</span></td><td class='X-Antox X-5.0.3 must unknown'><span title="Antox
@@ -2910,7 +2913,7 @@ qTox compliance data for 5.0.3 is missing.
 ">?</span></td><td class='X-uTox X-5.0.3 must compliant'><span title="uTox
 5.0.3 = Yes.
 TCS requires 5.0.3.
-">Yes</span></td><th class="X-5.0.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.3</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-5.0.4"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.4</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-5.0.4 should unknown'><span title="Antidote
+">Yes</span></td><th class="X-5.0.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.3</a></th></tr><tr><th class="X-5.0.4"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.4</a></th><td class='X-Antidote X-5.0.4 should unknown'><span title="Antidote
 5.0.4 = Unknown.
 Antidote compliance data for 5.0.4 is missing.
 ">?</span></td><td class='X-Antox X-5.0.4 should unknown'><span title="Antox
@@ -2988,7 +2991,7 @@ TCS recommends 5.0.4.
 
 Comment:
 Does not use correct folder for OSX.
-">No*</span></td><th class="X-5.0.4"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.4</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-5.1.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.1</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-5.1.1 must unknown'><span title="Antidote
+">No*</span></td><th class="X-5.0.4"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/data_storage.html">5.0.4</a></th></tr><tr><th class="X-5.1.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.1</a></th><td class='X-Antidote X-5.1.1 must unknown'><span title="Antidote
 5.1.1 = Unknown.
 Antidote compliance data for 5.1.1 is missing.
 ">?</span></td><td class='X-Antox X-5.1.1 must unknown'><span title="Antox
@@ -3063,7 +3066,7 @@ qTox compliance data for 5.1.1 is missing.
 ">?</span></td><td class='X-uTox X-5.1.1 must non-compliant'><span title="uTox
 5.1.1 = No.
 TCS requires 5.1.1.
-">No</span></td><th class="X-5.1.1"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.1</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-5.1.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.2</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-5.1.2 must unknown'><span title="Antidote
+">No</span></td><th class="X-5.1.1"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.1</a></th></tr><tr><th class="X-5.1.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.2</a></th><td class='X-Antidote X-5.1.2 must unknown'><span title="Antidote
 5.1.2 = Unknown.
 Antidote compliance data for 5.1.2 is missing.
 ">?</span></td><td class='X-Antox X-5.1.2 must unknown'><span title="Antox
@@ -3138,7 +3141,7 @@ qTox compliance data for 5.1.2 is missing.
 ">?</span></td><td class='X-uTox X-5.1.2 must compliant'><span title="uTox
 5.1.2 = Yes.
 TCS requires 5.1.2.
-">Yes</span></td><th class="X-5.1.2"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.2</a><br><button class="del-btn">X</button></th></tr><tr><th class="X-5.1.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.3</a><br><button class="del-btn">X</button></th><td class='X-Antidote X-5.1.3 must unknown'><span title="Antidote
+">Yes</span></td><th class="X-5.1.2"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.2</a></th></tr><tr><th class="X-5.1.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.3</a></th><td class='X-Antidote X-5.1.3 must unknown'><span title="Antidote
 5.1.3 = Unknown.
 Antidote compliance data for 5.1.3 is missing.
 ">?</span></td><td class='X-Antox X-5.1.3 must unknown'><span title="Antox
@@ -3213,107 +3216,107 @@ qTox compliance data for 5.1.3 is missing.
 ">?</span></td><td class='X-uTox X-5.1.3 must compliant'><span title="uTox
 5.1.3 = Yes.
 TCS requires 5.1.3.
-">Yes</span></td><th class="X-5.1.3"><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.3</a><br><button class="del-btn">X</button></th></tr><tr><th>%</th><th class="X-Antidote"><span>0%</span></th><th class="X-Antox"><span>0%</span></th><th class="X-CLItox"><span>0%</span></th><th class="X-Cyanide"><span>0%</span></th><th class="X-Detox"><span>0%</span></th><th class="X-Fltox"><span>0%</span></th><th class="X-Harbour-tox"><span>0%</span></th><th class="X-Isotoxin"><span>0%</span></th><th class="X-Konv"><span>0%</span></th><th class="X-MirandaNG"><span>0%</span></th><th class="X-Osmosis.jl"><span>0%</span></th><th class="X-Pastox"><span>0%</span></th><th class="X-Ricin"><span>0%</span></th><th class="X-TRIfA"><span>0%</span></th><th class="X-ToxDroid"><span>0%</span></th><th class="X-Toxer"><span>0%</span></th><th class="X-Toxic"><span>0%</span></th><th class="X-Toxy"><span>0%</span></th><th class="X-Toxygen"><span>0%</span></th><th class="X-Toxzilla"><span>0%</span></th><th class="X-Venom"><span>0%</span></th><th class="X-fToxTun"><span>0%</span></th><th class="X-minitox"><span>0%</span></th><th class="X-qTox"><span>0%</span></th><th class="X-uTox"><span>61%</span></th><th>%</th></tr><tr><th>TCS</th><th class='X-Antidote'><a href="" title="Antidote
+">Yes</span></td><th class="X-5.1.3"><button class="del-btn">X</button><a href="https://tox.gitbooks.io/tox-client-standard/content/data_storage/export_format.html">5.1.3</a></th></tr><tr><th>%</th><th class="X-Antidote"><span>0%</span></th><th class="X-Antox"><span>0%</span></th><th class="X-CLItox"><span>0%</span></th><th class="X-Cyanide"><span>0%</span></th><th class="X-Detox"><span>0%</span></th><th class="X-Fltox"><span>0%</span></th><th class="X-Harbour-tox"><span>0%</span></th><th class="X-Isotoxin"><span>0%</span></th><th class="X-Konv"><span>0%</span></th><th class="X-MirandaNG"><span>0%</span></th><th class="X-Osmosis.jl"><span>0%</span></th><th class="X-Pastox"><span>0%</span></th><th class="X-Ricin"><span>0%</span></th><th class="X-TRIfA"><span>0%</span></th><th class="X-ToxDroid"><span>0%</span></th><th class="X-Toxer"><span>0%</span></th><th class="X-Toxic"><span>0%</span></th><th class="X-Toxy"><span>0%</span></th><th class="X-Toxygen"><span>0%</span></th><th class="X-Toxzilla"><span>0%</span></th><th class="X-Venom"><span>0%</span></th><th class="X-fToxTun"><span>0%</span></th><th class="X-minitox"><span>0%</span></th><th class="X-qTox"><span>0%</span></th><th class="X-uTox"><span>61%</span></th><th>%</th></tr><tr><th>TCS</th><th class='X-Antidote'><button class="del-btn">X</button><a href="" title="Antidote
 Tox client for iOS
 Homepage: 
 Language: 
-License: ">Antidote</a><br><button class="del-btn">X</button></th><th class='X-Antox'><a href="" title="Antox
+License: ">Antidote</a></th><th class='X-Antox'><button class="del-btn">X</button><a href="" title="Antox
 Tox client for Android
 Homepage: 
 Language: 
-License: ">Antox</a><br><button class="del-btn">X</button></th><th class='X-CLItox'><a href="" title="CLItox
+License: ">Antox</a></th><th class='X-CLItox'><button class="del-btn">X</button><a href="" title="CLItox
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">CLItox</a><br><button class="del-btn">X</button></th><th class='X-Cyanide'><a href="" title="Cyanide
+License: ">CLItox</a></th><th class='X-Cyanide'><button class="del-btn">X</button><a href="" title="Cyanide
 Tox client for SailfishOS
 Homepage: 
 Language: 
-License: ">Cyanide</a><br><button class="del-btn">X</button></th><th class='X-Detox'><a href="https://github.com/hexafluoride/Detox" title="Detox
+License: ">Cyanide</a></th><th class='X-Detox'><button class="del-btn">X</button><a href="https://github.com/hexafluoride/Detox" title="Detox
 Tox client for Linux, Windows
 Homepage: https://github.com/hexafluoride/Detox
 Language: Mono
-License: GPL-3.0">Detox</a><br><button class="del-btn">X</button></th><th class='X-Fltox'><a href="https://github.com/msteinbeck/fltox" title="Fltox
+License: GPL-3.0">Detox</a></th><th class='X-Fltox'><button class="del-btn">X</button><a href="https://github.com/msteinbeck/fltox" title="Fltox
 Tox client for Linux
 Homepage: https://github.com/msteinbeck/fltox
 Language: C++
-License: GPL-3.0">Fltox</a><br><button class="del-btn">X</button></th><th class='X-Harbour-tox'><a href="" title="Harbour-tox
+License: GPL-3.0">Fltox</a></th><th class='X-Harbour-tox'><button class="del-btn">X</button><a href="" title="Harbour-tox
 Tox client for SailfishOS (Jolla)
 Homepage: 
 Language: 
-License: ">Harbour-tox</a><br><button class="del-btn">X</button></th><th class='X-Isotoxin'><a href="" title="Isotoxin
+License: ">Harbour-tox</a></th><th class='X-Isotoxin'><button class="del-btn">X</button><a href="" title="Isotoxin
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Isotoxin</a><br><button class="del-btn">X</button></th><th class='X-Konv'><a href="" title="Konv
+License: ">Isotoxin</a></th><th class='X-Konv'><button class="del-btn">X</button><a href="" title="Konv
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Konv</a><br><button class="del-btn">X</button></th><th class='X-MirandaNG'><a href="" title="MirandaNG
+License: ">Konv</a></th><th class='X-MirandaNG'><button class="del-btn">X</button><a href="" title="MirandaNG
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">MirandaNG</a><br><button class="del-btn">X</button></th><th class='X-Osmosis.jl'><a href="" title="Osmosis.jl
+License: ">MirandaNG</a></th><th class='X-Osmosis.jl'><button class="del-btn">X</button><a href="" title="Osmosis.jl
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Osmosis.jl</a><br><button class="del-btn">X</button></th><th class='X-Pastox'><a href="" title="Pastox
+License: ">Osmosis.jl</a></th><th class='X-Pastox'><button class="del-btn">X</button><a href="" title="Pastox
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Pastox</a><br><button class="del-btn">X</button></th><th class='X-Ricin'><a href="" title="Ricin
+License: ">Pastox</a></th><th class='X-Ricin'><button class="del-btn">X</button><a href="" title="Ricin
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Ricin</a><br><button class="del-btn">X</button></th><th class='X-TRIfA'><a href="" title="TRIfA
+License: ">Ricin</a></th><th class='X-TRIfA'><button class="del-btn">X</button><a href="" title="TRIfA
 Tox client for Android
 Homepage: 
 Language: 
-License: ">TRIfA</a><br><button class="del-btn">X</button></th><th class='X-ToxDroid'><a href="" title="ToxDroid
+License: ">TRIfA</a></th><th class='X-ToxDroid'><button class="del-btn">X</button><a href="" title="ToxDroid
 Tox client for Android
 Homepage: 
 Language: 
-License: ">ToxDroid</a><br><button class="del-btn">X</button></th><th class='X-Toxer'><a href="" title="Toxer
+License: ">ToxDroid</a></th><th class='X-Toxer'><button class="del-btn">X</button><a href="" title="Toxer
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxer</a><br><button class="del-btn">X</button></th><th class='X-Toxic'><a href="" title="Toxic
+License: ">Toxer</a></th><th class='X-Toxic'><button class="del-btn">X</button><a href="" title="Toxic
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxic</a><br><button class="del-btn">X</button></th><th class='X-Toxy'><a href="" title="Toxy
+License: ">Toxic</a></th><th class='X-Toxy'><button class="del-btn">X</button><a href="" title="Toxy
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxy</a><br><button class="del-btn">X</button></th><th class='X-Toxygen'><a href="" title="Toxygen
+License: ">Toxy</a></th><th class='X-Toxygen'><button class="del-btn">X</button><a href="" title="Toxygen
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxygen</a><br><button class="del-btn">X</button></th><th class='X-Toxzilla'><a href="" title="Toxzilla
+License: ">Toxygen</a></th><th class='X-Toxzilla'><button class="del-btn">X</button><a href="" title="Toxzilla
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Toxzilla</a><br><button class="del-btn">X</button></th><th class='X-Venom'><a href="" title="Venom
+License: ">Toxzilla</a></th><th class='X-Venom'><button class="del-btn">X</button><a href="" title="Venom
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">Venom</a><br><button class="del-btn">X</button></th><th class='X-fToxTun'><a href="" title="fToxTun
+License: ">Venom</a></th><th class='X-fToxTun'><button class="del-btn">X</button><a href="" title="fToxTun
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">fToxTun</a><br><button class="del-btn">X</button></th><th class='X-minitox'><a href="" title="minitox
+License: ">fToxTun</a></th><th class='X-minitox'><button class="del-btn">X</button><a href="" title="minitox
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">minitox</a><br><button class="del-btn">X</button></th><th class='X-qTox'><a href="" title="qTox
+License: ">minitox</a></th><th class='X-qTox'><button class="del-btn">X</button><a href="" title="qTox
 Tox client for Linux
 Homepage: 
 Language: 
-License: ">qTox</a><br><button class="del-btn">X</button></th><th class='X-uTox'><a href="https://github.com/utox/utox" title="uTox
+License: ">qTox</a></th><th class='X-uTox'><button class="del-btn">X</button><a href="https://github.com/utox/utox" title="uTox
 Tox client for Windows, OSX, BSD, Linux
 Homepage: https://github.com/utox/utox
 Language: C
-License: MIT">uTox</a><br><button class="del-btn">X</button></th><th>TCS</th></tr>
+License: MIT">uTox</a></th><th>TCS</th></tr>
 
 </table>
 </body>

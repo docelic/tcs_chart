@@ -450,7 +450,7 @@ sub produce_html_output {
 
   # Produce cells data
   while(my($point,$point_softwares) = each %{$C{tcs_matrix}}) {
-    $content .= qq|<tr><th class="X-$point"><a href="$C{tcs_strings}{$point}{url}">$point</a><br><button class="del-btn">X</button></th>|;
+    $content .= qq|<tr><th class="X-$point"><button class="del-btn">X</button><a href="$C{tcs_strings}{$point}{url}">$point</a></th>|;
     for my $software(sort keys %$point_softwares) {
       my $status = $$point_softwares{$software};
       my $display_value;
@@ -490,7 +490,7 @@ sub produce_html_output {
       $content .= "<td class='$class'>$display_value</td>";
     }
     if( $C{repeat_header}) {
-      $content .= qq|<th class="X-$point"><a href="$C{tcs_strings}{$point}{url}">$point</a><br><button class="del-btn">X</button></th>|;
+      $content .= qq|<th class="X-$point"><button class="del-btn">X</button><a href="$C{tcs_strings}{$point}{url}">$point</a></th>|;
     }
     $content .= "</tr>";
   }
@@ -521,7 +521,7 @@ sub produce_softwares_row {
     #} else {
     # $_ = qq|<a href="$$sw{url}">$_</a>|
     #}
-    $content .= qq|<th class='X-$$sw{name}'>$_<br><button class="del-btn">X</button></th>|
+    $content .= qq|<th class='X-$$sw{name}'><button class="del-btn">X</button>$_</th>|
   }
   if( $C{repeat_header}) {
     $content.= "<th>TCS</th>";
@@ -606,12 +606,15 @@ html, body {
 }
 button {
   display: none;
-  background-color: #f44336;
+  background-color: #c77979;
   margin: 0;
   width: 20px; height: 20px;
 }
 th:hover button, td:hover button {
-  display: block;
+  display: inline-block;
+  position: absolute;
+  margin: -25px 0 0 0;
+  border: 1px solid gray;
 }
 .pad {
   padding: 5px;
