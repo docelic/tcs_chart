@@ -320,7 +320,7 @@ sub compute_compliance {
   my $si = $$s{points}{$$ti{name}};
 
   my %data = (
-    comment => qq|$$s{shortname}\n$$s{shortname} ${\( status2string($$si{compliant}, ' implements', ' does not implement', "lacks info for") )} $$ti{name}.\n|,
+    comment => qq|$$s{shortname}\n$$ti{name} = ${\( status2string($$si{compliant}) )}.\n|,
     comment_flag => '',
     compliant => $si ? $$si{compliant} : undef,
     point_name => $$ti{name},
@@ -434,7 +434,7 @@ sub status2string {
       return $no || 'No'
     }
   } else {
-    return $na || 'Unknown'
+    return $na || 'Missing'
   }
   err "Unhandled value of 'must': $must", 1;
 }
