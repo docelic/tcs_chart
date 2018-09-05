@@ -24,7 +24,7 @@
 
 use warnings;
 use strict;
-use feature 'say';
+use feature qw/say/;
 BEGIN {
   eval { require JSON; require Tie::IxHash };
   if($@) { say "Please install dependencies: libjson-perl libtie-ixhash-perl"; exit 1}
@@ -32,7 +32,7 @@ BEGIN {
 use Fatal qw/open close read write/;
 use Data::Dumper qw/Dumper/;
 $Data::Dumper::Terse++;
-use Tie::IxHash;
+use Tie::IxHash qw//;
 use Getopt::Long qw/GetOptions/;
 use subs qw/read_file err usage/;
 my $json = JSON->new->allow_nonref->pretty;
