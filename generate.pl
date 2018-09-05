@@ -320,9 +320,10 @@ sub produce_tcs_matrix {
 sub compute_compliance {
   my($ti, $s) = @_;
   my $si = $$s{points}{$$ti{name}};
-
+  my $state = status2string($$si{compliant}) eq 'Yes' ? 'implements' : 'does not implement';
+  $state = status2string($$si{compliant}) eq "Unknown" ? "status of implementation is unknown for" : $state;
   my %data = (
-    comment => "$$s{shortname}\n$$ti{name} = ${\( status2string($$si{compliant}) )}.\n",
+    comment => "$$s{shortname}\n",
     comment_flag => '',
     compliant => $si ? $$si{compliant} : undef,
     point_name => $$ti{name},
@@ -352,22 +353,23 @@ sub compute_compliance {
     my $verb = status2string($must, "requires", "recommends", "does not apply");
     my $dep_val = status2string($$s{points}{ $dep_point }{compliant});
     if( defined $$s{points}{ $dep_point }{compliant}) {
-      $data{comment} .= "TCS $verb $$ti{name} due to $dep_point = $dep_val.\n";
+      $data{comment} .= "$$s{shortname} $verb $$ti{name} due to $dep_point = $dep_val.\n";
       #$data{comment_flag} ||= '*'
     } elsif(!defined $$s{points}{ $dep_point }{compliant}) {
-      $data{comment} .= "TCS requirement for $$ti{name} is unknown due to $dep_point = $dep_val.\n";
+      $data{comment} .= "$$s{shortname} requirement for $$ti{name} is unknown due to $dep_point = $dep_val.\n";
       #$data{comment_flag} ||= '*'
     }
   } else {
     my $verb = status2string($must, "requires", "recommends", "does not apply");
     if( defined $data{compliant}) {
-      $data{comment} .= "TCS $verb $$ti{name}.\n";
+      $data{comment} .= "$$s{shortname} $verb $$ti{name}.\n";
       #$data{comment_flag} ||= '*'
     } else {
       # TODO: Include info on how to submit missing data?
       $data{comment} .= "$$s{shortname} compliance data for $$ti{name} is missing.\n";
     }
   }
+  $data{comment} .= "$$s{shortname} ${state} $$ti{name}.\n";
   $data{must} = $must;
 
   if($$si{comment}) {
@@ -508,7 +510,7 @@ sub produce_html_output {
 
 sub produce_softwares_row {
   my $content = '';
-  $content.= "<tr><th>TCS</th>";
+  $content.= "<tr><th valign='top'>TCS</th>";
   for(sort keys %{$C{tox_software}}) {
     my $sw = $C{tox_software}{$_};
     #if( $$sw{name} ne $$sw{shortname}) {
@@ -524,7 +526,7 @@ sub produce_softwares_row {
     $content .= qq|<th class='X-$$sw{name}'>$_<br><button class="del-btn">X</button></th>|
   }
   if( $C{repeat_header}) {
-    $content.= "<th>TCS</th>";
+    $content.= "<th th valign='top'>TCS</th>";
   }
   $content .= "</tr>\n";
 }
@@ -605,13 +607,13 @@ html, body {
     margin-bottom: 1em;
 }
 button {
-  display: none;
-  background-color: #f44336;
-  margin: 0;
+  visibility: hidden;
+  background-color: #c77979;
+  margin: auto;
   width: 20px; height: 20px;
 }
 th:hover button, td:hover button {
-  display: block;
+  visibility: visible;
 }
 .pad {
   padding: 5px;
