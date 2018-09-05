@@ -14,9 +14,7 @@
 # Sat Sep  1 17:53:23 CEST 2018
 
 # TODO:
-# - Add total compliance scores/percentages
 # - Generate text parts (e.g. "TCS point 1.0.1 is implemented by <clients>")
-# - Add "X" button to every column and row, and minimal JavaScript to remove the respective column or row
 
 # Here goes:
 
@@ -47,10 +45,10 @@ my %C= (
   tcs_points_file => 'tcs_points.json',
   tox_software_glob => 'tox_software/*.json',
 
-  point_condition => '1',
-  software_condition => '1',
+  point_condition => 1,
+  software_condition => 1,
 
-  repeat_header => '1',
+  repeat_header => 1,
 
   dump_tcs_points => 0,
   dump_tox_software => 0,
