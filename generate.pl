@@ -320,7 +320,7 @@ sub compute_compliance {
   my $si = $$s{points}{$$ti{name}};
 
   my %data = (
-    comment => "$$s{shortname}\n$$ti{name} = ${\( status2string($$si{compliant}) )}.\n",
+    comment => qq|$$s{shortname}\n$$s{shortname} ${\( status2string($$si{compliant}, ' implements', ' does not implement', "lacks info for") )} $$ti{name}.\n|,
     comment_flag => '',
     compliant => $si ? $$si{compliant} : undef,
     point_name => $$ti{name},
@@ -358,13 +358,13 @@ sub compute_compliance {
     }
   } else {
     my $verb = status2string($must, "requires", "recommends", "does not apply");
-    if( defined $data{compliant}) {
+    #if( defined $data{compliant}) {
       $data{comment} .= "TCS $verb $$ti{name}.\n";
-      #$data{comment_flag} ||= '*'
-    } else {
-      # TODO: Include info on how to submit missing data?
-      $data{comment} .= "$$s{shortname} compliance data for $$ti{name} is missing.\n";
-    }
+    #  #$data{comment_flag} ||= '*'
+    #} else {
+    #  # TODO: Include info on how to submit missing data?
+    #  #$data{comment} .= "$$s{shortname} compliance data for $$ti{name} is missing.\n";
+    #}
   }
   $data{must} = $must;
 
